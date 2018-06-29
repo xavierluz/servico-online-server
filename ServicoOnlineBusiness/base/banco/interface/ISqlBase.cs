@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Text;
+
+namespace ServicoOnlineBusiness.bases.banco.interfaces
+{
+    public interface ISqlBase
+    {
+        DbConnection Create();
+    }
+}
