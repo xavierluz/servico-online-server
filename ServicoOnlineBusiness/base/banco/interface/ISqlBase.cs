@@ -7,6 +7,6 @@ namespace ServicoOnlineBusiness.bases.banco.interfaces
 {
     public interface ISqlBase
     {
-        DbConnection Create();
+        DbConnection getConnection();
     }
 }

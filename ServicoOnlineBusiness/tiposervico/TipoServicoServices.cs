@@ -28,15 +28,15 @@ namespace ServicoOnlineBusiness.tiposervico
         {
             return new TipoServicoServices(sqlBase, isolationLevel);
         }
-        public override IList<ITipoServicoDominio> Gets()
+        public override Task<List<ITipoServicoDominio>> Gets()
         {
             IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() select q);
 
             Task<List<TipoServicoDominio>> tipoServicos = this.Repositorio.Set(query).Get().ToListAsync();
 
-            IList<ITipoServicoDominio> ITipoServicos = tipoServicos.Result.ConvertAll(new Converter<TipoServicoDominio, ITipoServicoDominio>(ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio));
+            var ITipoServicos = tipoServicos.Result.ConvertAll(new Converter<TipoServicoDominio, ITipoServicoDominio>(ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio)).ToAsyncEnumerable();
 
-            return ITipoServicos;
+            return ITipoServicos.ToList();
         }
     }
 }

@@ -18,10 +18,10 @@ namespace ServicoOnlineBusiness.tiposervico.abstracts
         {
             this.isolationLevel = isolationLevel;
             this.optionsBuilder = new DbContextOptionsBuilder<TipoServicoDbContexto>();
-            this.optionsBuilder.UseSqlServer(sqlBase.Create());
+            this.optionsBuilder.UseSqlServer(sqlBase.getConnection());
 
         }
 
-        public abstract IList<ITipoServicoDominio> Gets();
+        public abstract Task<List<ITipoServicoDominio>> Gets();
     }
 }

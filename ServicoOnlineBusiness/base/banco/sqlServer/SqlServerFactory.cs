@@ -17,11 +17,11 @@ namespace ServicoOnlineBusiness.bases.banco.sqlServer
             connection = new SqlConnection(CONNECTIONSTRING);
 
         }
-        public static SqlConnection createInstance()
+        public static SqlServerFactory Create()
         {
-            return new SqlConnection();
+            return new SqlServerFactory();
         }
-        public DbConnection Create()
+        public DbConnection getConnection()
         {
             return this.connection;
         }
