@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ServicoOnlineBusiness.bases.banco.interfaces;
+using ServicoOnlineBusiness.bases.extensao;
 using ServicoOnlineBusiness.tiposervico.abstracts;
 using ServicoOnlineBusiness.tiposervico.configuracao;
 using ServicoOnlineBusiness.tiposervico.dominio.entidade;
@@ -37,6 +38,17 @@ namespace ServicoOnlineBusiness.tiposervico
             var ITipoServicos = tipoServicos.Result.ConvertAll(new Converter<TipoServicoDominio, ITipoServicoDominio>(ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio)).ToAsyncEnumerable();
 
             return ITipoServicos.ToList();
+        }
+
+        public override ITipoServicoDominio Get(int Id)
+        {
+            IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() where q.Id == Id select q);
+
+            Task<TipoServicoDominio> tipoServico = this.Repositorio.Set(query).Get().FirstOrDefaultAsync();
+
+            var ITipoServico = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(tipoServico.Result);
+
+            return ITipoServico;
         }
     }
 }

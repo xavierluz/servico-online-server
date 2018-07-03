@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ServicoOnlineBusiness.tiposervico.contexto;
+using ServicoOnlineBusiness.bases.contexto;
 
 namespace ServicoOnlineBusiness.Migrations
 {
-    [DbContext(typeof(TipoServicoDbContexto))]
-    partial class TipoServicoDbContextoModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ServicoContexto))]
+    partial class ServicoContextoModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -18,6 +18,38 @@ namespace ServicoOnlineBusiness.Migrations
                 .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ServicoOnlineBusiness.servico.dominio.entidade.ServicoDominio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(500);
+
+                    b.Property<string>("Indicacao")
+                        .HasMaxLength(150);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<decimal>("Preco");
+
+                    b.Property<string>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(2)
+                        .HasDefaultValue("AT");
+
+                    b.Property<int>("tipoServicoDominioId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("tipoServicoDominioId");
+
+                    b.ToTable("Servico","db");
+                });
 
             modelBuilder.Entity("ServicoOnlineBusiness.tiposervico.dominio.entidade.TipoServicoDominio", b =>
                 {
@@ -43,6 +75,14 @@ namespace ServicoOnlineBusiness.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoServico","db");
+                });
+
+            modelBuilder.Entity("ServicoOnlineBusiness.servico.dominio.entidade.ServicoDominio", b =>
+                {
+                    b.HasOne("ServicoOnlineBusiness.tiposervico.dominio.entidade.TipoServicoDominio", "tipoServicoDominio")
+                        .WithMany("servicoDominios")
+                        .HasForeignKey("tipoServicoDominioId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

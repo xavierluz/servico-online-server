@@ -1,31 +1,35 @@
 ﻿using ServicoOnlineBusiness.bases.banco.interfaces;
 using ServicoOnlineBusiness.bases.banco.sqlServer;
+using ServicoOnlineBusiness.servico;
+using ServicoOnlineBusiness.servico.abstracts;
+using ServicoOnlineBusiness.tiposervico;
 using ServicoOnlineBusiness.tiposervico.abstracts;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
-namespace ServicoOnlineBusiness.tiposervico
+namespace ServicoOnlineBusiness.factory
 {
-    public class TipoServicoFactory
+    public class ServicoFactory
     {
         private IsolationLevel isolationLevel = IsolationLevel.Unspecified;
         private ISqlBase sqlBase = null;
 
-        private TipoServicoFactory(IsolationLevel isolationLevel)
+        private ServicoFactory(IsolationLevel isolationLevel)
         {
             sqlBase = SqlServerFactory.Create();
             this.isolationLevel = isolationLevel;
         }
-        public static TipoServicoFactory Create(IsolationLevel isolationLevel)
+        public static ServicoFactory Create(IsolationLevel isolationLevel)
         {
-            return new TipoServicoFactory(isolationLevel);
+            return new ServicoFactory(isolationLevel);
         }
 
         public TipoServicoAbstract getTipoServico()
         {
             return TipoServicoServices.Create(this.sqlBase, this.isolationLevel);
+        }
+        public ServicoAbstract getServico()
+        {
+            return ServicoServices.Create(this.sqlBase, this.isolationLevel);
         }
     }
 }

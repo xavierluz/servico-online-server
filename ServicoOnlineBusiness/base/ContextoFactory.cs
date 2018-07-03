@@ -1,21 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using ServicoOnlineBusiness.tiposervico.contexto;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ServicoOnlineBusiness.bases.contexto;
 
 namespace ServicoOnlineBusiness.bases
 {
-    public class ContextoFactory : IDesignTimeDbContextFactory<TipoServicoDbContexto>
+    public class ContextoFactory : IDesignTimeDbContextFactory<ServicoContexto>
     {
         //migrations
-        public TipoServicoDbContexto CreateDbContext(string[] args)
+        public ServicoContexto CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<TipoServicoDbContexto>();
+            var optionsBuilder = new DbContextOptionsBuilder<ServicoContexto>();
             optionsBuilder.UseSqlServer(@"Data Source=D-PROD-BP100906\SQLEXPRESS;Initial Catalog=ServicoOnlineDB;User ID=sa;Password=@Prodesp2018");
 
-            return  TipoServicoDbContexto.Create(optionsBuilder.Options);
+            return ServicoContexto.Create(optionsBuilder.Options);
         }
     }
 }

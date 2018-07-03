@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServicoOnlineBusiness.bases.contexto;
 using ServicoOnlineBusiness.bases.repositorio;
 using ServicoOnlineBusiness.tiposervico.contexto;
 using ServicoOnlineBusiness.tiposervico.dominio.entidade;
@@ -12,12 +13,12 @@ namespace ServicoOnlineBusiness.tiposervico.repositorio
 {
     internal class TipoServicoRepositorio : RepositorioBase<TipoServicoDominio>
     {
-        internal TipoServicoRepositorio(DbContextOptions<TipoServicoDbContexto> options,IsolationLevel isolationLevel) : base(isolationLevel)
+        internal TipoServicoRepositorio(DbContextOptions<ServicoContexto> options,IsolationLevel isolationLevel) : base(isolationLevel)
         {
-            this.Contexto = TipoServicoDbContexto.Create(options);
+            this.Contexto = ServicoContexto.Create(options);
         }
 
-        internal static TipoServicoRepositorio Create(DbContextOptions<TipoServicoDbContexto> options, IsolationLevel isolationLevel)
+        internal static TipoServicoRepositorio Create(DbContextOptions<ServicoContexto> options, IsolationLevel isolationLevel)
         {
             return new TipoServicoRepositorio(options, isolationLevel);
         }

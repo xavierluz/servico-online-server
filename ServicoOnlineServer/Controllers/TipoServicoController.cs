@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using ServicoOnlineBusiness.tiposervico;
+using ServicoOnlineBusiness.factory;
 using ServicoOnlineBusiness.tiposervico.abstracts;
 using ServicoOnlineBusiness.tiposervico.dominio.interfaces;
 
@@ -13,18 +14,30 @@ using ServicoOnlineBusiness.tiposervico.dominio.interfaces;
 namespace ServicoOnlineServer.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class TipoServicoController : Controller
     {
-        private TipoServicoFactory servicoFactory = null;
+        private ServicoFactory servicoFactory = null;
         private IsolationLevel isolationLevel = IsolationLevel.ReadUncommitted;
 
-        public Task<ActionResult<List<ITipoServicoDominio>>> Gets()
+        [HttpGet(Name = "GetTipos")]
+        public ActionResult<IEnumerable<ITipoServicoDominio>> Gets()
         {
-            servicoFactory = TipoServicoFactory.Create(this.isolationLevel);
+            servicoFactory = ServicoFactory.Create(this.isolationLevel);
             TipoServicoAbstract tipoServico = servicoFactory.getTipoServico();
             Task<List<ITipoServicoDominio>> tiposServicos = tipoServico.Gets();
 
-            return Json(tiposServicos.Result.ToList());
+            return tiposServicos.Result.ToList();
+        }
+        [Produces(typeof(ITipoServicoDominio))]
+        [HttpGet("{Id}",Name = "GetTipo")]
+        public ActionResult<ITipoServicoDominio> Get(int Id)
+        {
+            servicoFactory = ServicoFactory.Create(this.isolationLevel);
+            TipoServicoAbstract tipoServico = servicoFactory.getTipoServico();
+            ITipoServicoDominio tiposServicos = tipoServico.Get(Id);
+
+            return Ok(tiposServicos);
         }
     }
 }

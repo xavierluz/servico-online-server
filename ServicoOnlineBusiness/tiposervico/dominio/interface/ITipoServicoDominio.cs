@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServicoOnlineBusiness.servico.dominio.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,5 +12,6 @@ namespace ServicoOnlineBusiness.tiposervico.dominio.interfaces
         String Descricao { get; set; }
         String caminhoDaImage { get; set; }
         String Status { get; set; }
+        ICollection<IServicoDominio> IServicoDominios { get; set; }
     }
 }

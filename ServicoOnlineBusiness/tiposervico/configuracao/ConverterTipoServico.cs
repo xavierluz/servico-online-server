@@ -15,11 +15,11 @@ namespace ServicoOnlineBusiness.tiposervico.configuracao
             if(tipoServicoDominio != null)
             {
                 _tipoServicoDominio = TipoServicoDominio.Create();
-                _tipoServicoDominio.caminhoDaImage = _tipoServicoDominio.caminhoDaImage;
-                _tipoServicoDominio.Descricao = _tipoServicoDominio.Descricao;
-                _tipoServicoDominio.Id = _tipoServicoDominio.Id;
-                _tipoServicoDominio.Nome = _tipoServicoDominio.Nome;
-                _tipoServicoDominio.Status = _tipoServicoDominio.Status;
+                _tipoServicoDominio.caminhoDaImage = tipoServicoDominio.caminhoDaImage;
+                _tipoServicoDominio.Descricao = tipoServicoDominio.Descricao;
+                _tipoServicoDominio.Id = tipoServicoDominio.Id;
+                _tipoServicoDominio.Nome = tipoServicoDominio.Nome;
+                _tipoServicoDominio.Status = tipoServicoDominio.Status;
             }
 
             return _tipoServicoDominio;
