@@ -30,7 +30,7 @@ namespace ServicoOnlineServer.Controllers
             return tiposServicos.Result.ToList();
         }
         [Produces(typeof(ITipoServicoDominio))]
-        [HttpGet("{Id}",Name = "GetTipo")]
+        [HttpGet("{Id}", Name = "GetTipo")]
         public ActionResult<ITipoServicoDominio> Get(int Id)
         {
             servicoFactory = ServicoFactory.Create(this.isolationLevel);
@@ -39,5 +39,9 @@ namespace ServicoOnlineServer.Controllers
 
             return Ok(tiposServicos);
         }
+      
+
+
+       
     }
 }

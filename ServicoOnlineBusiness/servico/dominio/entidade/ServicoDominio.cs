@@ -1,4 +1,6 @@
-﻿using ServicoOnlineBusiness.servico.dominio.interfaces;
+﻿using ServicoOnlineBusiness.pagamento.dominio.entidade;
+using ServicoOnlineBusiness.pagamento.dominio.interfaces;
+using ServicoOnlineBusiness.servico.dominio.interfaces;
 using ServicoOnlineBusiness.tiposervico.dominio.entidade;
 using ServicoOnlineBusiness.tiposervico.dominio.interfaces;
 using System;
@@ -10,7 +12,10 @@ namespace ServicoOnlineBusiness.servico.dominio.entidade
 {
     public class ServicoDominio : IServicoDominio
     {
-        protected ServicoDominio() { }
+        protected ServicoDominio() {
+            this.IPagamentoItemDominios = new List<IPagamentoItemDominio>();
+            this.PagamentoItemDominios = new List<PagamentoItemDominio>();
+        }
 
         internal static ServicoDominio Create()
         {
@@ -26,6 +31,9 @@ namespace ServicoOnlineBusiness.servico.dominio.entidade
         public ITipoServicoDominio ITipoServico { get; set; }
         public virtual int tipoServicoDominioId { get; set; }
         public virtual TipoServicoDominio tipoServicoDominio { get; set; }
-        public string Status { get; set ; }
+        public string Status { get; set; }
+        [NotMapped]
+        public ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get; set; }
+        public ICollection<PagamentoItemDominio> PagamentoItemDominios { get; set; }
     }
 }

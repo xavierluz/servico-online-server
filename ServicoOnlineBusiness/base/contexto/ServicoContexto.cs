@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServicoOnlineBusiness.pagamento.dominio.entidade;
+using ServicoOnlineBusiness.pagamento.map;
 using ServicoOnlineBusiness.servico.dominio.entidade;
 using ServicoOnlineBusiness.servico.map;
 using ServicoOnlineBusiness.tiposervico.dominio.entidade;
@@ -13,6 +15,8 @@ namespace ServicoOnlineBusiness.bases.contexto
     {
         internal virtual DbSet<TipoServicoDominio> TipoServicos { get; set; }
         internal virtual DbSet<ServicoDominio> Servicos { get; set; }
+        internal virtual DbSet<PagamentoDominio> PagamentoDominios { get; set; }
+        internal virtual DbSet<PagamentoItemDominio> PagamentoItemDominios { get; set; }
         private ServicoContexto(DbContextOptions<ServicoContexto> options) : base(options)
         {
 
@@ -27,7 +31,11 @@ namespace ServicoOnlineBusiness.bases.contexto
         {
             TipoServicoMap.createInstance(builder);
             ServicoMap.createInstance(builder);
+            PagamentoMap.createInstance(builder);
+            PagamentoItemMap.createInstance(builder);
+
             builder.HasDefaultSchema("db");
+            RelacionamentoServico.Create(builder);
             base.OnModelCreating(builder);
         }
     }

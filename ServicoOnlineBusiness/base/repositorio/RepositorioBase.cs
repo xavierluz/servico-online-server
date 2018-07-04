@@ -35,30 +35,32 @@ namespace ServicoOnlineBusiness.bases.repositorio
             this.Contexto.ChangeTracker.LazyLoadingEnabled = true;
 
         }
-        protected async void createTransacao()
+        internal async void createTransacao()
         {
             await this.Contexto.Database.BeginTransactionAsync(this.isolationLevel);
         }
-        protected void Commit()
+        internal void Commit()
         {
-            this.Contexto.Database.CommitTransaction();
+            if (this.Contexto.Database.CurrentTransaction != null)
+                this.Contexto.Database.CommitTransaction();
         }
-        protected void Rollback()
+        internal void Rollback()
         {
-            this.Contexto.Database.RollbackTransaction();
+            if (this.Contexto.Database.CurrentTransaction != null)
+                this.Contexto.Database.RollbackTransaction();
         }
 
-        protected IDbContextTransaction getTransacao()
+        internal IDbContextTransaction getTransacao()
         {
             return this.Contexto.Database.CurrentTransaction;
         }
 
-        protected async void Adicionar(T entidade)
+        internal async void Adicionar(T entidade)
         {
             await this.Contexto.Set<T>().AddAsync(entidade);
         }
 
-        protected async void Adicionar(IList<T> entidades)
+        internal async void Adicionar(IList<T> entidades)
         {
             await this.Contexto.Set<T>().AddRangeAsync(entidades);
         }
@@ -81,7 +83,7 @@ namespace ServicoOnlineBusiness.bases.repositorio
             return this.Contexto.Set<T>().FindAsync(key);
         }
 
-        internal Task<int> Salvar()
+        internal Task<int> SalvarAsync()
         {
             try
             {
@@ -100,7 +102,25 @@ namespace ServicoOnlineBusiness.bases.repositorio
             }
 
         }
+        internal int Salvar()
+        {
+            try
+            {
+                return this.Contexto.SaveChanges();
+            }
 
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
         internal Task<int> executeNoQuery(string query)
         {
             this.Contexto.Database.SetCommandTimeout(0);

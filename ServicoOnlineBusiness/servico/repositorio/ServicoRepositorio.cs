@@ -15,6 +15,7 @@ namespace ServicoOnlineBusiness.servico.repositorio
         internal ServicoRepositorio(DbContextOptions<ServicoContexto> options, IsolationLevel isolationLevel) : base(isolationLevel)
         {
             this.Contexto = ServicoContexto.Create(options);
+            this.configurarContextoPerformance();
         }
 
         internal static ServicoRepositorio Create(DbContextOptions<ServicoContexto> options, IsolationLevel isolationLevel)

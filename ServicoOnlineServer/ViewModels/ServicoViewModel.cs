@@ -1,4 +1,5 @@
-﻿using ServicoOnlineBusiness.servico.dominio.interfaces;
+﻿using ServicoOnlineBusiness.pagamento.dominio.interfaces;
+using ServicoOnlineBusiness.servico.dominio.interfaces;
 using ServicoOnlineBusiness.tiposervico.dominio.interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,5 +20,6 @@ namespace ServicoOnlineServer.ViewModels
         public string TipoServicoCaminhoDaImage { get; set; }
         public ITipoServicoDominio ITipoServico { get; set; }
         public int tipoServicoDominioId { get; set; }
+        public ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get; set; }
     }
 }

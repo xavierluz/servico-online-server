@@ -1,5 +1,7 @@
 ﻿using ServicoOnlineBusiness.bases.banco.interfaces;
 using ServicoOnlineBusiness.bases.banco.sqlServer;
+using ServicoOnlineBusiness.pagamento;
+using ServicoOnlineBusiness.pagamento.abstracts;
 using ServicoOnlineBusiness.servico;
 using ServicoOnlineBusiness.servico.abstracts;
 using ServicoOnlineBusiness.tiposervico;
@@ -30,6 +32,10 @@ namespace ServicoOnlineBusiness.factory
         public ServicoAbstract getServico()
         {
             return ServicoServices.Create(this.sqlBase, this.isolationLevel);
+        }
+        public PagamentoAbstract getPagamento()
+        {
+            return PagamentoServices.Create(this.sqlBase, this.isolationLevel);
         }
     }
 }

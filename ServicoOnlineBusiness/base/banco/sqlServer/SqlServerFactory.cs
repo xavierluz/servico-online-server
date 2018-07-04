@@ -10,7 +10,7 @@ namespace ServicoOnlineBusiness.bases.banco.sqlServer
     internal class SqlServerFactory: ISqlBase
     {
         private SqlConnection connection = null;
-        private const string CONNECTIONSTRING = @"Data Source=D-PROD-BP100906\SQLEXPRESS;Initial Catalog=ServicoOnlineDB;User ID=sa;Password=@Prodesp2018";
+        private const string CONNECTIONSTRING = @"Data Source=D-PROD-BP100906\SQLEXPRESS;Initial Catalog=ServicoOnlineDB;User ID=sa;Password=@Prodesp2018;MultipleActiveResultSets=True";
 
         private SqlServerFactory()
         {

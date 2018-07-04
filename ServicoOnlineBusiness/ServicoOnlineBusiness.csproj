@@ -20,11 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="pagamento\abstract\" />
-    <Folder Include="pagamento\configuracao\" />
     <Folder Include="pagamento\contexto\" />
-    <Folder Include="pagamento\map\" />
-    <Folder Include="pagamento\repositorio\" />
     <Folder Include="servico\contexto\" />
   </ItemGroup>
 

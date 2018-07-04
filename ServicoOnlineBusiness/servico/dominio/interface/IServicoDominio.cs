@@ -1,4 +1,5 @@
-﻿using ServicoOnlineBusiness.tiposervico.dominio.interfaces;
+﻿using ServicoOnlineBusiness.pagamento.dominio.interfaces;
+using ServicoOnlineBusiness.tiposervico.dominio.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,6 @@ namespace ServicoOnlineBusiness.servico.dominio.interfaces
         String Status { get; set; }
         ITipoServicoDominio ITipoServico { get; set; }
         Int32 tipoServicoDominioId { get; set; }
-
+        ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get; set; }
     }
 }

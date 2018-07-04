@@ -11,7 +11,7 @@ namespace ServicoOnlineBusiness.pagamento.dominio.interfaces
         Guid PagamentoDominioId { get; set; }
         IPagamentoDominio IPagamentoDominio { get; set; }
         int Quantidade { get; set; }
-        Int32 ServicoId { get; set; }
+        Int32 ServicoDominioId { get; set; }
         IServicoDominio IServicoDominio { get; set; }
         String Status { get; set; }
     }
