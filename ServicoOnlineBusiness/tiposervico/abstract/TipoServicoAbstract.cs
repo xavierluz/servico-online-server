@@ -25,5 +25,6 @@ namespace ServicoOnlineBusiness.tiposervico.abstracts
 
         public abstract Task<List<ITipoServicoDominio>> Gets();
         public abstract ITipoServicoDominio Get(int Id);
+        public abstract Task<ITipoServicoDominio> Incluir(ITipoServicoDominio tipoServicoDominio);
     }
 }

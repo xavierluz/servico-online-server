@@ -28,15 +28,17 @@ namespace ServicoOnlineBusiness.pagamento
         {
             return new PagamentoServices(sqlBase, isolationLevel);
         }
-        public override IPagamentoDominio Incluir(IPagamentoDominio pagamento)
+        public async override Task<IPagamentoDominio> Incluir(IPagamentoDominio pagamento)
         {
             Repositorio.createTransacao();
             try
             {
                 PagamentoDominio pagamentoDominio = ConverterPagamento.converterIPagamentoDominioParaPagamentoDominio(pagamento);
-                Task<int> resgistrosAfetados = incluirPagamento(pagamentoDominio);
+                pagamentoDominio.NumeroDocumento = NumeroDocumento.Create(pagamento.Nome, pagamento.Telefone).getNumeroDocumento();
 
-                if (resgistrosAfetados.Result > 0)
+                int resgistrosAfetados = await incluirPagamento(pagamentoDominio);
+
+                if (resgistrosAfetados > 0)
                     Repositorio.Commit();
                 else
                     Repositorio.Rollback();

@@ -58,7 +58,7 @@ namespace ServicoOnlineServer.Controllers
 
             }
 
-            var pagamentoRetorno = Pagamento.Incluir(pagamentoDominio);
+            var pagamentoRetorno = Pagamento.Incluir(pagamentoDominio).Result;
             pagamentoRetorno.IPagamentoItemDominios = null;
             return Ok(pagamentoRetorno);
         }

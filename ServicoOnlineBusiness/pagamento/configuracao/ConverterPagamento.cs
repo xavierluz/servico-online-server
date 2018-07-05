@@ -24,6 +24,7 @@ namespace ServicoOnlineBusiness.pagamento.configuracao
                 _pagamentoDominio.Nome = pagamentoDominio.Nome;
                 _pagamentoDominio.Status = pagamentoDominio.Status;
                 _pagamentoDominio.Telefone = pagamentoDominio.Telefone;
+                _pagamentoDominio.NumeroDocumento = pagamentoDominio.NumeroDocumento;
                 _pagamentoDominio.PagamentoItemDominios = pagamentoDominio.IPagamentoItemDominios.ToList().ConvertAll(new Converter<IPagamentoItemDominio, PagamentoItemDominio>(setPagamentoItemDominio));
             }
 
@@ -62,6 +63,7 @@ namespace ServicoOnlineBusiness.pagamento.configuracao
                 _pagamentoDominio.Nome = pagamentoDominio.Nome;
                 _pagamentoDominio.Status = pagamentoDominio.Status;
                 _pagamentoDominio.Telefone = pagamentoDominio.Telefone;
+                _pagamentoDominio.NumeroDocumento = pagamentoDominio.NumeroDocumento;
                 _pagamentoDominio.IPagamentoItemDominios = pagamentoDominio.PagamentoItemDominios.ToList().ConvertAll(new Converter<PagamentoItemDominio, IPagamentoItemDominio>(setIPagamentoItemDominio));
             }
 

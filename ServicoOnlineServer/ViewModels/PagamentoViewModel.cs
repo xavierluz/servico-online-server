@@ -22,5 +22,6 @@ namespace ServicoOnlineServer.ViewModels
         public string Status { get; set; }
         public ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get; set; }
         public ICollection<PagamentoItemViewModel> PagamentoItemViewModels { get; set; }
+        public string NumeroDocumento { get ; set; }
     }
 }

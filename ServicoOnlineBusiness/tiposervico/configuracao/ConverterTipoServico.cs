@@ -24,5 +24,21 @@ namespace ServicoOnlineBusiness.tiposervico.configuracao
 
             return _tipoServicoDominio;
         }
+        internal static TipoServicoDominio converterITipoServicoDominioParaTipoServicoDominio(ITipoServicoDominio tipoServicoDominio)
+        {
+            TipoServicoDominio _tipoServicoDominio = null;
+
+            if (tipoServicoDominio != null)
+            {
+                _tipoServicoDominio = TipoServicoDominio.Create();
+                _tipoServicoDominio.caminhoDaImage = tipoServicoDominio.caminhoDaImage;
+                _tipoServicoDominio.Descricao = tipoServicoDominio.Descricao;
+                _tipoServicoDominio.Id = tipoServicoDominio.Id;
+                _tipoServicoDominio.Nome = tipoServicoDominio.Nome;
+                _tipoServicoDominio.Status = tipoServicoDominio.Status;
+            }
+
+            return _tipoServicoDominio;
+        }
     }
 }

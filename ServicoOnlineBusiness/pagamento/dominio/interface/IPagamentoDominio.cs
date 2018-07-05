@@ -13,6 +13,7 @@ namespace ServicoOnlineBusiness.pagamento.dominio.interfaces
         String FormaPagamento { get; set; }
         String Descricao { get; set; }
         String Status { get; set; }
+        String NumeroDocumento { get; set; }
         ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get; set; }
     }
 }

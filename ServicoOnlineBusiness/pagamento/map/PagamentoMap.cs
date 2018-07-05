@@ -18,6 +18,7 @@ namespace ServicoOnlineBusiness.pagamento.map
             builder.Entity<PagamentoDominio>().Property(x => x.Email).HasMaxLength(100);
             builder.Entity<PagamentoDominio>().Property(x => x.Descricao).HasMaxLength(1000);
             builder.Entity<PagamentoDominio>().Property(x => x.Telefone).HasMaxLength(12);
+            builder.Entity<PagamentoDominio>().Property(x => x.NumeroDocumento).IsRequired().HasMaxLength(30);
             builder.Entity<PagamentoDominio>().Property(x => x.Status).HasMaxLength(2).HasDefaultValue("AT");
             builder.Entity<PagamentoDominio>().Property(x => x.FormaPagamento).IsRequired().HasMaxLength(3).HasDefaultValue("DHR");
         }

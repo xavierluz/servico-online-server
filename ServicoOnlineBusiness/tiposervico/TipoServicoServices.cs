@@ -19,7 +19,7 @@ namespace ServicoOnlineBusiness.tiposervico
     {
         #region "Atributos privados"
         private TipoServicoRepositorio Repositorio = null;
-
+        private ITipoServicoDominio TipoServicoDominio = null;
         #endregion
         private TipoServicoServices(ISqlBase sqlBase, IsolationLevel isolationLevel) : base(sqlBase, isolationLevel)
         {
@@ -49,6 +49,29 @@ namespace ServicoOnlineBusiness.tiposervico
             var ITipoServico = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(tipoServico.Result);
 
             return ITipoServico;
+        }
+
+        public async override Task<ITipoServicoDominio> Incluir(ITipoServicoDominio tipoServicoDominio)
+        {
+            TipoServicoDominio _tipoServicoDominio = ConverterTipoServico.converterITipoServicoDominioParaTipoServicoDominio(tipoServicoDominio);
+            this.Repositorio.createTransacao();
+            try
+            {
+                this.Repositorio.Adicionar(_tipoServicoDominio);
+                int resgistrosAfetados = await this.Repositorio.SalvarAsync();
+                if (resgistrosAfetados > 0)
+                    this.Repositorio.Commit();
+                else
+                    this.Repositorio.Rollback();
+
+                TipoServicoDominio = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(_tipoServicoDominio);
+            }
+            catch(Exception ex)
+            {
+                this.Repositorio.Rollback();
+                throw ex;
+            }
+            return this.TipoServicoDominio;
         }
     }
 }

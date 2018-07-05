@@ -29,6 +29,6 @@ namespace ServicoOnlineBusiness.pagamento.dominio.entidade
         [NotMapped]
         public ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get; set; }
         public virtual ICollection<PagamentoItemDominio> PagamentoItemDominios { get; set; }
-        
+        public string NumeroDocumento { get; set; }
     }
 }

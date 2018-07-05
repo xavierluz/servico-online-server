@@ -22,6 +22,6 @@ namespace ServicoOnlineBusiness.pagamento.abstracts
 
         }
 
-        public abstract IPagamentoDominio Incluir(IPagamentoDominio pagamento);
+        public abstract Task<IPagamentoDominio> Incluir(IPagamentoDominio pagamento);
     }
 }
