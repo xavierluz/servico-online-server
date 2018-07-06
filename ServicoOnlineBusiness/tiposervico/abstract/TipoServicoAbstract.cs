@@ -22,9 +22,10 @@ namespace ServicoOnlineBusiness.tiposervico.abstracts
             this.optionsBuilder.UseSqlServer(sqlBase.getConnection());
 
         }
-
+        public abstract ITipoServicoDominio Get();
         public abstract Task<List<ITipoServicoDominio>> Gets();
         public abstract ITipoServicoDominio Get(int Id);
-        public abstract Task<ITipoServicoDominio> Incluir(ITipoServicoDominio tipoServicoDominio);
+        public abstract Task<TipoServicoAbstract> Incluir(ITipoServicoDominio tipoServicoDominio);
+        public abstract Task<TipoServicoAbstract> Alterar(ITipoServicoDominio tipoServicoDominio);
     }
 }

@@ -28,15 +28,15 @@ namespace ServicoOnlineBusiness.servico
         {
             return new ServicoServices(sqlBase, isolationLevel);
         }
-        public override Task<List<IServicoDominio>> Gets(int tipoServicoId)
+        public async override Task<List<IServicoDominio>> Gets(int tipoServicoId)
         {
             IQueryable<ServicoDominio> query = (from q in this.Repositorio.Contexto.Set<ServicoDominio>()
                                                 where q.tipoServicoDominio.Id == tipoServicoId
                                                 select q).Include(x=> x.tipoServicoDominio);
 
-            Task<List<ServicoDominio>> Servicos = this.Repositorio.Set(query).Get().ToListAsync();
+            List<ServicoDominio> Servicos = await this.Repositorio.Set(query).Get().ToListAsync();
 
-            var IServicos = Servicos.Result.ConvertAll(new Converter<ServicoDominio, IServicoDominio>(ConverterServico.converterServicoDominioParaIServicoDominio)).ToAsyncEnumerable();
+            var IServicos = Servicos.ConvertAll(new Converter<ServicoDominio, IServicoDominio>(ConverterServico.converterServicoDominioParaIServicoDominio));
 
             return IServicos.ToList();
         }

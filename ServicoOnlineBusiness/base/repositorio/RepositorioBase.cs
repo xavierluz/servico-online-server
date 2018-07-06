@@ -87,9 +87,11 @@ namespace ServicoOnlineBusiness.bases.repositorio
         {
             try
             {
+
                 return this.Contexto.SaveChangesAsync();
+
             }
-            
+
 
             catch (SqlException ex)
             {
@@ -98,7 +100,7 @@ namespace ServicoOnlineBusiness.bases.repositorio
             catch (Exception ex)
             {
                 throw ex;
-               
+
             }
 
         }

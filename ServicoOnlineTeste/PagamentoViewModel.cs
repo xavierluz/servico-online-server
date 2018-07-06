@@ -19,5 +19,6 @@ namespace ServicoOnlineTeste
         public string Descricao { get ; set ; }
         public string Status { get ; set ; }
         public ICollection<IPagamentoItemDominio> IPagamentoItemDominios { get ; set ; }
+        public string NumeroDocumento { get ; set; }
     }
 }

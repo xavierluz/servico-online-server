@@ -21,13 +21,13 @@ namespace ServicoOnlineServer.Controllers
         private IsolationLevel isolationLevel = IsolationLevel.ReadUncommitted;
 
         [HttpGet("{tipoServicoId}", Name = "GetServico")]
-        public ActionResult<IEnumerable<ServicoViewModel>> Gets(int tipoServicoId)
+        public async Task<ActionResult<IEnumerable<ServicoViewModel>>> Gets(int tipoServicoId)
         {
             servicoFactory = ServicoFactory.Create(this.isolationLevel);
             ServicoAbstract Servico = servicoFactory.getServico();
-            Task<List<IServicoDominio>> Servicos = Servico.Gets(tipoServicoId);
+            List<IServicoDominio> Servicos = await Servico.Gets(tipoServicoId);
 
-            return Servicos.Result.ToList().ConvertAll(new Converter<IServicoDominio, ServicoViewModel>(this.converterIServicoDominioParaServicoViewModel));
+            return Servicos.ToList().ConvertAll(new Converter<IServicoDominio, ServicoViewModel>(this.converterIServicoDominioParaServicoViewModel));
         }
 
         private ServicoViewModel converterIServicoDominioParaServicoViewModel(IServicoDominio servicoDominio)

@@ -42,27 +42,29 @@ namespace ServicoOnlineBusiness.tiposervico
 
         public override ITipoServicoDominio Get(int Id)
         {
-            IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() where q.Id == Id select q);
 
-            Task<TipoServicoDominio> tipoServico = this.Repositorio.Set(query).Get().FirstOrDefaultAsync();
+            TipoServicoDominio tipoServico = consultarPorId(Id);
 
-            var ITipoServico = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(tipoServico.Result);
+            var ITipoServico = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(tipoServico);
 
             return ITipoServico;
         }
 
-        public async override Task<ITipoServicoDominio> Incluir(ITipoServicoDominio tipoServicoDominio)
+        public async override Task<TipoServicoAbstract> Incluir(ITipoServicoDominio tipoServicoDominio)
         {
             TipoServicoDominio _tipoServicoDominio = ConverterTipoServico.converterITipoServicoDominioParaTipoServicoDominio(tipoServicoDominio);
             this.Repositorio.createTransacao();
             try
             {
                 this.Repositorio.Adicionar(_tipoServicoDominio);
-                int resgistrosAfetados = await this.Repositorio.SalvarAsync();
-                if (resgistrosAfetados > 0)
+                Task<int> registrosAfetados = this.Repositorio.SalvarAsync();
+
+                if (registrosAfetados.Result > 0)
                     this.Repositorio.Commit();
                 else
                     this.Repositorio.Rollback();
+
+                await registrosAfetados;
 
                 TipoServicoDominio = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(_tipoServicoDominio);
             }
@@ -71,7 +73,47 @@ namespace ServicoOnlineBusiness.tiposervico
                 this.Repositorio.Rollback();
                 throw ex;
             }
-            return this.TipoServicoDominio;
+            return this;
+        }
+
+        public async override Task<TipoServicoAbstract> Alterar(ITipoServicoDominio tipoServicoDominio)
+        {
+            this.TipoServicoDominio = tipoServicoDominio;
+            this.Repositorio.createTransacao();
+            TipoServicoDominio tipoServico = consultarPorId(tipoServicoDominio.Id);
+            if(tipoServico != null)
+            {
+                tipoServico.Nome = tipoServicoDominio.Nome;
+                tipoServico.Status = tipoServicoDominio.Status;
+                tipoServico.Descricao = tipoServicoDominio.Descricao;
+
+                this.Repositorio.Atualizar(tipoServico);
+                Task<int> registrosAfetados = this.Repositorio.SalvarAsync();
+
+                if (registrosAfetados.Result > 0)
+                    this.Repositorio.Commit();
+                else
+                    this.Repositorio.Rollback();
+
+                await registrosAfetados;
+                this.TipoServicoDominio = ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio(tipoServico);
+            }
+           
+
+            return this;
+        }
+
+        private TipoServicoDominio consultarPorId(int Id)
+        {
+            IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() where q.Id == Id select q);
+
+            Task<TipoServicoDominio> tipoServico = this.Repositorio.Set(query).Get().FirstOrDefaultAsync();
+            return tipoServico.Result;
+        }
+
+        public override ITipoServicoDominio Get()
+        {
+            return TipoServicoDominio;
         }
     }
 }

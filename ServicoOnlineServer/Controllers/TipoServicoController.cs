@@ -21,13 +21,13 @@ namespace ServicoOnlineServer.Controllers
         private IsolationLevel isolationLevel = IsolationLevel.ReadUncommitted;
 
         [HttpGet(Name = "GetTipos")]
-        public ActionResult<IEnumerable<ITipoServicoDominio>> Gets()
+        public async Task<ActionResult<IEnumerable<ITipoServicoDominio>>> Gets()
         {
             servicoFactory = ServicoFactory.Create(this.isolationLevel);
             TipoServicoAbstract tipoServico = servicoFactory.getTipoServico();
-            Task<List<ITipoServicoDominio>> tiposServicos = tipoServico.Gets();
+            List<ITipoServicoDominio> tiposServicos = await tipoServico.Gets();
 
-            return tiposServicos.Result.ToList();
+            return tiposServicos.ToList();
         }
         [Produces(typeof(ITipoServicoDominio))]
         [HttpGet("{Id}", Name = "GetTipo")]
