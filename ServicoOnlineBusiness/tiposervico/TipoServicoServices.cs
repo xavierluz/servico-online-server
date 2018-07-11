@@ -25,10 +25,12 @@ namespace ServicoOnlineBusiness.tiposervico
         {
             this.Repositorio = TipoServicoRepositorio.Create(this.optionsBuilder.Options, isolationLevel);
         }
+       
         internal static TipoServicoServices Create(ISqlBase sqlBase, IsolationLevel isolationLevel)
         {
             return new TipoServicoServices(sqlBase, isolationLevel);
         }
+       
         public override Task<List<ITipoServicoDominio>> Gets()
         {
             IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() select q);
@@ -114,6 +116,11 @@ namespace ServicoOnlineBusiness.tiposervico
         public override ITipoServicoDominio Get()
         {
             return TipoServicoDominio;
+        }
+
+        public override Task<List<ITipoServicoDominio>> Gets(int paginaIndex, string filtro, int registroPorPagina)
+        {
+            throw new NotImplementedException();
         }
     }
 }

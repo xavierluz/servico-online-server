@@ -15,6 +15,7 @@ namespace ServicoOnlineBusiness.tiposervico.abstracts
     {
         internal DbContextOptionsBuilder<ServicoContexto> optionsBuilder;
         protected IsolationLevel isolationLevel;
+        protected string token;
         protected TipoServicoAbstract(ISqlBase sqlBase, IsolationLevel isolationLevel)
         {
             this.isolationLevel = isolationLevel;
@@ -22,8 +23,17 @@ namespace ServicoOnlineBusiness.tiposervico.abstracts
             this.optionsBuilder.UseSqlServer(sqlBase.getConnection());
 
         }
+        protected TipoServicoAbstract(ISqlBase sqlBase, IsolationLevel isolationLevel, string token)
+        {
+            this.token = token;
+            this.isolationLevel = isolationLevel;
+            this.optionsBuilder = new DbContextOptionsBuilder<ServicoContexto>();
+            this.optionsBuilder.UseSqlServer(sqlBase.getConnection());
+
+        }
         public abstract ITipoServicoDominio Get();
         public abstract Task<List<ITipoServicoDominio>> Gets();
+        public abstract Task<List<ITipoServicoDominio>> Gets(int paginaIndex, string filtro, int registroPorPagina);
         public abstract ITipoServicoDominio Get(int Id);
         public abstract Task<TipoServicoAbstract> Incluir(ITipoServicoDominio tipoServicoDominio);
         public abstract Task<TipoServicoAbstract> Alterar(ITipoServicoDominio tipoServicoDominio);

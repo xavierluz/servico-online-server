@@ -3,6 +3,8 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineServer.runtimeconfig.dev.json
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineServer.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineServer.pdb
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.dll
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.pdb
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.csprojResolveAssemblyReference.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.csproj.CoreCompileInputs.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.RazorAssemblyInfo.cache
@@ -12,5 +14,3 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.RazorTargetAssemblyInfo.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.pdb
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.dll
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.pdb

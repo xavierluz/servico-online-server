@@ -29,6 +29,10 @@ namespace ServicoOnlineBusiness.factory
         {
             return TipoServicoServices.Create(this.sqlBase, this.isolationLevel);
         }
+        public TipoServicoAbstract getTipoServicoAdmin(string token)
+        {
+            return TipoServicesAdmin.Create(this.sqlBase, this.isolationLevel, token);
+        }
         public ServicoAbstract getServico()
         {
             return ServicoServices.Create(this.sqlBase, this.isolationLevel);
