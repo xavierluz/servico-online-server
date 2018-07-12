@@ -117,7 +117,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_UsuarioToken_Usuario"); ;
+                .HasConstraintName("FK_UsuarioToken_Usuario");
             builder.HasDefaultSchema("dbo");
             base.OnModelCreating(builder);
         }
