@@ -13,6 +13,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
 
             builder.Entity<IdentityRole>().HasKey(p => p.Id).HasName("PK_Funcao");
             builder.Entity<IdentityRole>().Property(p => p.ConcurrencyStamp).HasColumnName("TempoConcorrencia");
@@ -20,9 +21,9 @@ namespace ServicoOnlineUsuario.usuario.contexto
             builder.Entity<IdentityRole>().Property(p => p.Name).HasColumnName("Nome").HasMaxLength(256);
             builder.Entity<IdentityRole>().Property(p => p.NormalizedName).HasColumnName("NomeNormalizado").HasMaxLength(256);
             builder.Entity<IdentityRole>().HasIndex(p => p.NormalizedName).IsUnique().HasName("FuncaoNomeIndex").HasFilter("[NomeNormalizado] IS NOT NULL");
-            builder.Entity<IdentityRole>().ToTable("Funcao");
+            builder.Entity<IdentityRole>().ToTable("Funcao", "dbo");
 
-            builder.Entity<IdentityRoleClaim<string>>().ToTable("FuncaoRequisicao");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("FuncaoRequisicao", "dbo");
             builder.Entity<IdentityRoleClaim<string>>().HasKey(p => p.Id).HasName("PK_FuncaoRequisicao");
             builder.Entity<IdentityRoleClaim<string>>().Property(p => p.Id).HasColumnName("Id")
                 .ValueGeneratedOnAdd().HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -31,7 +32,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
             builder.Entity<IdentityRoleClaim<string>>().Property(p => p.RoleId).HasColumnName("RequisicaoFuncaoId").IsRequired().HasMaxLength(50);
             builder.Entity<IdentityRoleClaim<string>>().HasIndex(p => p.RoleId).HasName("FuncaoRequisicaoFuncaoIndex");
 
-            builder.Entity<IdentityUser>().ToTable("Usuario");
+            builder.Entity<IdentityUser>().ToTable("Usuario", "dbo");
             builder.Entity<IdentityUser>().HasKey(p => p.Id).HasName("PK_Usuario");
             builder.Entity<IdentityUser>().Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd().HasMaxLength(50);
             builder.Entity<IdentityUser>().Property(p => p.LockoutEnabled).HasColumnName("BloqueioAtivo");
@@ -51,7 +52,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
             builder.Entity<IdentityUser>().HasIndex(p => p.NormalizedEmail).HasName("EmailIndex");
             builder.Entity<IdentityUser>().HasIndex(p => p.NormalizedUserName).IsUnique().HasName("NomeIndex").HasFilter("[NomeNormalizado] IS NOT NULL");
 
-            builder.Entity<IdentityUserClaim<string>>().ToTable("UsuarioRequisicao");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("UsuarioRequisicao", "dbo");
             builder.Entity<IdentityUserClaim<string>>().HasKey(p => p.Id).HasName("PK_UsuarioRequisicaoId");
             builder.Entity<IdentityUserClaim<string>>().Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -60,7 +61,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
             builder.Entity<IdentityUserClaim<string>>().Property(p => p.UserId).HasColumnName("UsuarioId").IsRequired().HasMaxLength(50);
             builder.Entity<IdentityUserClaim<string>>().HasIndex(p => p.UserId).HasName("UsuarioIdIndex");
 
-            builder.Entity<IdentityUserLogin<string>>().ToTable("UsuarioLogin");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("UsuarioLogin", "dbo");
             builder.Entity<IdentityUserLogin<string>>().HasKey(p => new { p.LoginProvider, p.ProviderKey }).HasName("PK_UsuarioLogin");
             builder.Entity<IdentityUserLogin<string>>().Property(p => p.LoginProvider).HasColumnName("ProvedorLogin").IsRequired().HasMaxLength(256);
             builder.Entity<IdentityUserLogin<string>>().Property(p => p.ProviderKey).HasColumnName("ChaveProvedor").IsRequired().HasMaxLength(256);
@@ -68,14 +69,14 @@ namespace ServicoOnlineUsuario.usuario.contexto
             builder.Entity<IdentityUserLogin<string>>().Property(p => p.UserId).HasColumnName("UsuarioId").IsRequired().HasMaxLength(50);
             builder.Entity<IdentityUserLogin<string>>().HasIndex(p => p.UserId).HasName("UsuarioIdIndex");
 
-            builder.Entity<IdentityUserRole<string>>().ToTable("UsuarioFuncao");
+            builder.Entity<IdentityUserRole<string>>().ToTable("UsuarioFuncao", "dbo");
             builder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId }).HasName("PK_UsuarioFuncao");
             builder.Entity<IdentityUserRole<string>>().Property(p => p.UserId).HasColumnName("UsuarioId").IsRequired().HasMaxLength(256);
             builder.Entity<IdentityUserRole<string>>().Property(p => p.RoleId).HasColumnName("FuncaoId").IsRequired().HasMaxLength(50);
             builder.Entity<IdentityUserRole<string>>().HasIndex(p => p.RoleId).HasName("FuncaoIdIndex");
 
 
-            builder.Entity<IdentityUserToken<string>>().ToTable("UsuarioToken");
+            builder.Entity<IdentityUserToken<string>>().ToTable("UsuarioToken", "dbo");
             builder.Entity<IdentityUserToken<string>>().HasKey(p => new { p.UserId, p.LoginProvider, p.Name }).HasName("PK_UsuarioToken");
             builder.Entity<IdentityUserToken<string>>().Property(p => p.UserId).HasColumnName("UsuarioId").IsRequired().HasMaxLength(50);
             builder.Entity<IdentityUserToken<string>>().Property(p => p.LoginProvider).HasColumnName("ProvedorLogin").IsRequired().HasMaxLength(256);
@@ -119,7 +120,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_UsuarioToken_Usuario");
             builder.HasDefaultSchema("dbo");
-            base.OnModelCreating(builder);
+           
         }
 
         internal static UsuarioContexto Create(DbContextOptions<UsuarioContexto> options)

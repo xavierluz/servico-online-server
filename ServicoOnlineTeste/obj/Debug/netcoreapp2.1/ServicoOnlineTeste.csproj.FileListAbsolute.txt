@@ -7,7 +7,11 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineTeste.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineTeste.pdb
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.dll
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineUsuario.dll
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.pdb
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineUsuario.pdb
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.csprojResolveAssemblyReference.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.csproj.CoreCompileInputs.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.AssemblyInfoInputs.cache

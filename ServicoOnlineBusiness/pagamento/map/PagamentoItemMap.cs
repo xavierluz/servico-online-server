@@ -11,7 +11,7 @@ namespace ServicoOnlineBusiness.pagamento.map
         private PagamentoItemMap(ModelBuilder builder)
         {
 
-            builder.Entity<PagamentoItemDominio>().ToTable("PagamentoItem", "db");
+            builder.Entity<PagamentoItemDominio>().ToTable("PagamentoItem", "dbo");
             builder.Entity<PagamentoItemDominio>().HasKey(x => x.Id);
             builder.Entity<PagamentoItemDominio>().Property(x => x.Id).HasDefaultValue(Guid.NewGuid());
             builder.Entity<PagamentoItemDominio>().Property(x => x.Quantidade).IsRequired();

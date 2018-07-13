@@ -34,7 +34,7 @@ namespace ServicoOnlineBusiness.bases.contexto
             PagamentoMap.createInstance(builder);
             PagamentoItemMap.createInstance(builder);
 
-            builder.HasDefaultSchema("db");
+            builder.HasDefaultSchema("dbo");
             RelacionamentoServico.Create(builder);
             base.OnModelCreating(builder);
         }

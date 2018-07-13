@@ -10,7 +10,7 @@ namespace ServicoOnlineBusiness.servico.map
     {
         private ServicoMap(ModelBuilder builder)
         {
-            builder.Entity<ServicoDominio>().ToTable("Servico", "db");
+            builder.Entity<ServicoDominio>().ToTable("Servico", "dbo");
             builder.Entity<ServicoDominio>().HasKey(x => x.Id);
             builder.Entity<ServicoDominio>().Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Entity<ServicoDominio>().Property(x => x.Nome).HasMaxLength(50).IsRequired();

@@ -11,7 +11,7 @@ namespace ServicoOnlineUsuario.bases
         public EmpresaContexto CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<EmpresaContexto>();
-            optionsBuilder.UseSqlServer(@"Data Source=D-PROD-BP100906\SQLEXPRESS;Initial Catalog=ServicoOnlineDB;User ID=sa;Password=@Prodesp2018");
+            optionsBuilder.UseSqlServer(@"Data Source=D-PROD-BP100906\SQLEXPRESS;Initial Catalog=ServicoOnlineUsuarioDB;User ID=sa;Password=@Prodesp2018");
 
             return EmpresaContexto.Create(optionsBuilder.Options);
         }

@@ -9,7 +9,7 @@ using System.Text;
 namespace ServicoOnlineUsuario.usuario.dominio.entidade
 {
     [NotMapped]
-    internal class Usuario : IdentityUser
+    public class Usuario : IdentityUser
     {
         private Usuario() { }
         internal static Usuario Create()
