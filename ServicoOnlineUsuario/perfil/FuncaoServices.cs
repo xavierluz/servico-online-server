@@ -28,6 +28,7 @@ namespace ServicoOnlineUsuario.perfil
         }
         internal async override Task<IdentityRole> Incluir(IdentityRole entidade)
         {
+
             contexto = new UsuarioContexto(optionsBuilder.Options);
             contexto.Database.BeginTransaction(this.isolationLevel);
             contexto.Roles.Add(entidade);

@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "ASPSMS/0.0.2": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.1.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Net.Http": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/ASPSMS.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/ASPSMS.dll": {}
+        }
+      },
       "EntityFrameworkCore.Diagrams/0.4.2": {
         "type": "package",
         "dependencies": {
@@ -25,6 +39,15 @@
             "codeLanguage": "any",
             "copyToOutput": false
           }
+        }
+      },
+      "Microsoft.AspNet.Identity.Core/2.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -2089,7 +2112,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.Http.dll": {}
         }
       },
-      "Microsoft.Extensions.Identity.Core/2.1.1": {
+      "Microsoft.Extensions.Identity.Core/2.1.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.1.1",
@@ -2104,10 +2127,10 @@
           "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {}
         }
       },
-      "Microsoft.Extensions.Identity.Stores/2.1.1": {
+      "Microsoft.Extensions.Identity.Stores/2.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Identity.Core": "2.1.1",
+          "Microsoft.Extensions.Identity.Core": "2.1.2",
           "Microsoft.Extensions.Logging": "2.1.1",
           "System.ComponentModel.Annotations": "4.5.0"
         },
@@ -4372,6 +4395,23 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Twilio/5.13.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.1.2",
+          "Microsoft.IdentityModel.Tokens": "5.1.2",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.IdentityModel.Tokens.Jwt": "5.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Twilio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Twilio.dll": {}
+        }
+      },
       "ServicoOnlineBusiness/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -4389,10 +4429,38 @@
         "runtime": {
           "bin/placeholder/ServicoOnlineBusiness.dll": {}
         }
+      },
+      "ServicoOnlineUsuario/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.AspNet.Identity.Core": "2.2.2",
+          "Microsoft.EntityFrameworkCore": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Design": "2.1.1",
+          "Microsoft.Extensions.Identity.Stores": "2.1.2"
+        },
+        "compile": {
+          "bin/placeholder/ServicoOnlineUsuario.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ServicoOnlineUsuario.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "ASPSMS/0.0.2": {
+      "sha512": "0IhBBFaUQ0C8HMG51hJwNhsEbePJ09gBPqc4/7LzZdlPs+jRnFJRYFA/VgLgnO6WAZ4VWI63YtwJqXcQi6vRRQ==",
+      "type": "package",
+      "path": "aspsms/0.0.2",
+      "files": [
+        "aspsms.0.0.2.nupkg.sha512",
+        "aspsms.nuspec",
+        "lib/netstandard1.1/ASPSMS.dll",
+        "lib/netstandard1.1/ASPSMS.pdb",
+        "lib/netstandard1.1/ASPSMS.xml"
+      ]
+    },
     "EntityFrameworkCore.Diagrams/0.4.2": {
       "sha512": "f6q45V85jnJmnIS5YfetlynNmiWiekZruQ/TnMY87GXlLuU0bVZGMSe65CpZaow35sGSzm2xjtJKYhfvrGiKYQ==",
       "type": "package",
@@ -4426,6 +4494,18 @@
         "entityframeworkcore.diagrams.nuspec",
         "lib/netstandard1.6/EntityFrameworkCore.Diagrams.dll",
         "lib/netstandard1.6/EntityFrameworkCore.Diagrams.xml"
+      ]
+    },
+    "Microsoft.AspNet.Identity.Core/2.2.2": {
+      "sha512": "bWth+6XxppUzJzLiVh/0r85SWKFR4dCHse4RgJfM30BR6of5euR5Y6U+URdouFYWyaiTaU2ySTPhvvN07cn/oQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.identity.core/2.2.2",
+      "files": [
+        ".signature.p7s",
+        "lib/net45/Microsoft.AspNet.Identity.Core.dll",
+        "lib/net45/Microsoft.AspNet.Identity.Core.xml",
+        "microsoft.aspnet.identity.core.2.2.2.nupkg.sha512",
+        "microsoft.aspnet.identity.core.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -6191,27 +6271,27 @@
         "microsoft.extensions.http.nuspec"
       ]
     },
-    "Microsoft.Extensions.Identity.Core/2.1.1": {
-      "sha512": "Ob9ms69b2qhQhi3SMNhE3SPsCIWhyC4e3IZWSRWxWXwfVLcOfrjaC3qJDPiTOE6Gs7QB/A7jM16i86v6TZ2g5A==",
+    "Microsoft.Extensions.Identity.Core/2.1.2": {
+      "sha512": "XnmvEFQLHKTjpVAN0FcrfLkdOnLVfKF2OjGxZWSficTBniBpIb6W+TyCV1SCKAkybWwE4W1f9bbAwdHyvaGc4A==",
       "type": "package",
-      "path": "microsoft.extensions.identity.core/2.1.1",
+      "path": "microsoft.extensions.identity.core/2.1.2",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.xml",
-        "microsoft.extensions.identity.core.2.1.1.nupkg.sha512",
+        "microsoft.extensions.identity.core.2.1.2.nupkg.sha512",
         "microsoft.extensions.identity.core.nuspec"
       ]
     },
-    "Microsoft.Extensions.Identity.Stores/2.1.1": {
-      "sha512": "SYqJ9R96S27fv7gWmnUFW+YF5Rd6mKYTETZo+j5WVXXxowojwsn9lkm/6EvyhIwKFbhR5SLw7Y+ajnzlVRua3g==",
+    "Microsoft.Extensions.Identity.Stores/2.1.2": {
+      "sha512": "5xX1WzfzmzwG776Np2VmqQNw1cQSOKdmdVAJOFPYKB7prVowCeeE5gG9VLqlM8h5gptRVs14/z/VVFF+pLOpcA==",
       "type": "package",
-      "path": "microsoft.extensions.identity.stores/2.1.1",
+      "path": "microsoft.extensions.identity.stores/2.1.2",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
-        "microsoft.extensions.identity.stores.2.1.1.nupkg.sha512",
+        "microsoft.extensions.identity.stores.2.1.2.nupkg.sha512",
         "microsoft.extensions.identity.stores.nuspec"
       ]
     },
@@ -11600,18 +11680,42 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Twilio/5.13.8": {
+      "sha512": "oGXkYC9KjcSZ3ydroKPovjTHoh6ngrO442fkRoBK6Q4EbCt0wLhDeLSBxdd5QzETdTxOLmOIwCjHCYKiPty9uA==",
+      "type": "package",
+      "path": "twilio/5.13.8",
+      "files": [
+        "lib/net35/Twilio.dll",
+        "lib/net35/Twilio.xml",
+        "lib/net451/Twilio.dll",
+        "lib/net451/Twilio.xml",
+        "lib/netstandard1.4/Twilio.dll",
+        "lib/netstandard1.4/Twilio.xml",
+        "twilio.5.13.8.nupkg.sha512",
+        "twilio.nuspec"
+      ]
+    },
     "ServicoOnlineBusiness/1.0.0": {
       "type": "project",
       "path": "../ServicoOnlineBusiness/ServicoOnlineBusiness.csproj",
       "msbuildProject": "../ServicoOnlineBusiness/ServicoOnlineBusiness.csproj"
+    },
+    "ServicoOnlineUsuario/1.0.0": {
+      "type": "project",
+      "path": "../ServicoOnlineUsuario/ServicoOnlineUsuario.csproj",
+      "msbuildProject": "../ServicoOnlineUsuario/ServicoOnlineUsuario.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "ASPSMS >= 0.0.2",
+      "Microsoft.AspNet.Identity.Core >= 2.2.2",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Cors >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
-      "ServicoOnlineBusiness >= 1.0.0"
+      "ServicoOnlineBusiness >= 1.0.0",
+      "ServicoOnlineUsuario >= 1.0.0",
+      "Twilio >= 5.13.8"
     ]
   },
   "packageFolders": {
@@ -11650,6 +11754,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineUsuario\\ServicoOnlineUsuario.csproj": {
+              "projectPath": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineUsuario\\ServicoOnlineUsuario.csproj"
+            },
             "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineBusiness\\ServicoOnlineBusiness.csproj": {
               "projectPath": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineBusiness\\ServicoOnlineBusiness.csproj"
             }
@@ -11665,6 +11772,14 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "ASPSMS": {
+            "target": "Package",
+            "version": "[0.0.2, )"
+          },
+          "Microsoft.AspNet.Identity.Core": {
+            "target": "Package",
+            "version": "[2.2.2, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -11679,6 +11794,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Twilio": {
+            "target": "Package",
+            "version": "[5.13.8, )"
           }
         },
         "imports": [
@@ -11688,5 +11807,27 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "ASPSMS 0.0.2 depende de NETStandard.Library (>= 1.1.0), mas NETStandard.Library 1.1.0 não foi encontrado. A melhor correspondência aproximada de NETStandard.Library 1.6.0 foi resolvida.",
+      "libraryId": "NETStandard.Library",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Microsoft.AspNet.Identity.Core 2.2.2' foi restaurado usando '.NETFramework,Version=v4.6.1' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v2.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Microsoft.AspNet.Identity.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

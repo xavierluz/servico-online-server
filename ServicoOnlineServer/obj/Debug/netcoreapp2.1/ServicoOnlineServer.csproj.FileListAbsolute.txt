@@ -14,3 +14,5 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.RazorTargetAssemblyInfo.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\obj\Debug\netcoreapp2.1\ServicoOnlineServer.pdb
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineUsuario.dll
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineServer\bin\Debug\netcoreapp2.1\ServicoOnlineUsuario.pdb

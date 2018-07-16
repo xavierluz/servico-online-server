@@ -7,7 +7,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
 {
     public class UsuarioContexto : IdentityDbContext
     {
-        internal UsuarioContexto(DbContextOptions<UsuarioContexto> options) : base(options)
+        public UsuarioContexto(DbContextOptions<UsuarioContexto> options) : base(options)
         {
 
         }
@@ -123,9 +123,6 @@ namespace ServicoOnlineUsuario.usuario.contexto
            
         }
 
-        internal static UsuarioContexto Create(DbContextOptions<UsuarioContexto> options)
-        {
-            return new UsuarioContexto(options);
-        }
+       
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ServicoOnlineUsuario.bases.banco.sqlServer
 {
-    internal class SqlServerFactory: ISqlBase
+    public class SqlServerFactory: ISqlBase
     {
         private SqlConnection connection = null;
         private const string CONNECTIONSTRING = @"Data Source=D-PROD-BP100906\SQLEXPRESS;Initial Catalog=ServicoOnlineUsuarioDB;User ID=sa;Password=@Prodesp2018";

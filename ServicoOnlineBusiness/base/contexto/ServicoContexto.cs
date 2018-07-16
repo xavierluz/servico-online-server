@@ -29,6 +29,7 @@ namespace ServicoOnlineBusiness.bases.contexto
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             TipoServicoMap.createInstance(builder);
             ServicoMap.createInstance(builder);
             PagamentoMap.createInstance(builder);
@@ -36,7 +37,7 @@ namespace ServicoOnlineBusiness.bases.contexto
 
             builder.HasDefaultSchema("dbo");
             RelacionamentoServico.Create(builder);
-            base.OnModelCreating(builder);
+            
         }
     }
 }
