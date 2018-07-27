@@ -14,7 +14,7 @@ namespace ServicoOnlineServer.perfil.funcao
     internal class FuncaoManager
     {
         private RoleManager<IdentityRole> _roleManager = null;
-        private DbContextOptionsBuilder<UsuarioContexto> _optionsBuilder;
+        private DbContextOptionsBuilder<UsuarioContexto> _optionsBuilder = null;
         private UsuarioContexto _usuarioContexto = null;
         private ISqlBase _sqlBase;
         private IsolationLevel _isolationLevel;
@@ -29,6 +29,7 @@ namespace ServicoOnlineServer.perfil.funcao
         {
             this._isolationLevel = isolationLevel;
             this._sqlBase = sqlBase;
+            this._optionsBuilder = new DbContextOptionsBuilder<UsuarioContexto>();
             this._optionsBuilder.UseSqlServer(sqlBase.getConnection());
         }
         internal static FuncaoManager Create(RoleManager<IdentityRole> roleManager)

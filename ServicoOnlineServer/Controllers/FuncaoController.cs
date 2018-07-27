@@ -106,11 +106,11 @@ namespace ServicoOnlineServer.Controllers
 
         //    return tableEmpresa;
         //}
-       
+
         // POST api/<Empresa>
         [Route("getsFuncaoRequisicao")]
         [HttpPost(Name = "getsFuncaoRequisicao")]
-        public async Task<ActionResult<IEnumerable<FuncaoRequisicaoTableViewModel>>> getsRequisicoes([FromBody] DataTablesResponseViewModel model,string funcaoId)
+        public async Task<ActionResult<IEnumerable<FuncaoRequisicaoTableViewModel>>> getsRequisicoes([FromBody] DataTablesResponseViewModel model)
         {
             string filtro = model.Search.Value;
             int ordernar = model.Order[0].Column;
@@ -123,7 +123,7 @@ namespace ServicoOnlineServer.Controllers
             ISqlBase sqlBase = SqlServerFactory.Create();
             FuncaoManager funcaoManager = FuncaoManager.Create(sqlBase, _isolationLevel);
 
-            List<IdentityRoleClaim<string>> funcoesRequisicoes = await funcaoManager.getsRequisicoes(funcaoId, startRec, filtro, pageSize);
+            List<IdentityRoleClaim<string>> funcoesRequisicoes = await funcaoManager.getsRequisicoes(model.funcaoId, startRec, filtro, pageSize);
 
             IList<FuncaoRequisicaoTableViewModel> tableFuncaoRequisicao = funcoesRequisicoes.ConvertAll(new Converter<IdentityRoleClaim<string>, FuncaoRequisicaoTableViewModel>(FuncaoConverter.converterIdentityRoleClaimParaClaim));
 
@@ -137,13 +137,13 @@ namespace ServicoOnlineServer.Controllers
         }
         [Route("adicionarRequisicaoAfuncao")]
         [HttpPost(Name = "adicionarRequisicaoAfuncao")]
-        public async Task<bool> adicionarRequisicaoAfuncao(string roleName)
+        public async Task<bool> adicionarRequisicaoAfuncao([FromBody] ClaimViewModel _funcaoRequisicao)
         {
-            Claim _funcaoRequisicao = new Claim("string", "Celso", "string", "xavier");
 
-            Task<IdentityRole> funcaos = _roleManager.FindByNameAsync(roleName);
-            IdentityRole funcao = await funcaos;
-            var resultado = await _roleManager.AddClaimAsync(funcao, _funcaoRequisicao);
+            Task<IdentityRole> funcao = _roleManager.FindByIdAsync(_funcaoRequisicao.FuncaoId);
+            IdentityRole _funcao = await funcao;
+
+            var resultado = await _roleManager.AddClaimAsync(_funcao, _funcaoRequisicao.toClaim());
             return resultado.Succeeded;
         }
 

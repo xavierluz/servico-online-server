@@ -16,5 +16,6 @@ namespace ServicoOnlineServer.ViewModels
         public DataTableOrderViewModel[] Order { get; set; }
         public DataTableColumnViewModel[] Columns { get; set; }
         public DataTableSearchViewModel Search { get; set; }
+        public string funcaoId { get; set; }
     }
 }
