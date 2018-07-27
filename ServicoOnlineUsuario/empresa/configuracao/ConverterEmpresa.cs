@@ -55,7 +55,8 @@ namespace ServicoOnlineUsuario.empresa.configuracao
                 _empresa.Nome = empresa.Nome;
                 _empresa.NomeFantasia = empresa.NomeFantasia;
                 _empresa.Status = empresa.Status;
-                _empresa.IEmpresaUsuarios = empresa.EmpresaUsuarios.ToList().ConvertAll(new Converter<EmpresaUsuario, IEmpresaUsuario>(converterEmpresaUsuarioParaIEmpresaUsuario));
+                if (empresa.EmpresaUsuarios != null)
+                    _empresa.IEmpresaUsuarios = empresa.EmpresaUsuarios.ToList().ConvertAll(new Converter<EmpresaUsuario, IEmpresaUsuario>(converterEmpresaUsuarioParaIEmpresaUsuario));
 
             }
 
@@ -75,6 +76,23 @@ namespace ServicoOnlineUsuario.empresa.configuracao
             }
 
             return _empresaUsuario;
+        }
+
+        internal static CaminhoArquivo converterICaminhoArquivoParaCaminhoArquivo(ICaminhoArquivo caminhoArquivo)
+        {
+            CaminhoArquivo _caminhoArquivo = null;
+            if(caminhoArquivo != null)
+            {
+                _caminhoArquivo = CaminhoArquivo.Create();
+
+                _caminhoArquivo.CaminhoBaseDownload = caminhoArquivo.CaminhoBaseDownload;
+                _caminhoArquivo.CaminhoBaseImagem = caminhoArquivo.CaminhoBaseImagem;
+                _caminhoArquivo.EmpresaId = caminhoArquivo.EmpresaId;
+                _caminhoArquivo.Id = caminhoArquivo.Id;
+                _caminhoArquivo.Status = caminhoArquivo.Status;
+            }
+
+            return _caminhoArquivo;
         }
     }
    

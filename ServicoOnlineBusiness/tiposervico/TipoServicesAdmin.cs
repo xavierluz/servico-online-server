@@ -45,7 +45,7 @@ namespace ServicoOnlineBusiness.tiposervico
             throw new NotImplementedException();
         }
 
-        public override Task<List<ITipoServicoDominio>> Gets()
+        public override Task<List<ITipoServicoDominio>> GetsAsync()
         {
             try
             {
@@ -129,6 +129,11 @@ namespace ServicoOnlineBusiness.tiposervico
         }
 
         public override Task<TipoServicoAbstract> Incluir(ITipoServicoDominio tipoServicoDominio)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<ITipoServicoDominio> Gets()
         {
             throw new NotImplementedException();
         }

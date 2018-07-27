@@ -35,8 +35,10 @@ namespace ServicoOnlineServer
             });
             services.AddDbContext<UsuarioContexto>(options =>
               options.UseSqlServer(SqlServerFactory.Create().getConnection()));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<UsuarioContexto>();
+            services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<UsuarioContexto>()
+                .AddDefaultTokenProviders();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
             services.AddAuthentication(options =>
@@ -54,6 +56,7 @@ namespace ServicoOnlineServer
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -61,7 +64,7 @@ namespace ServicoOnlineServer
                 app.UseHsts();
             }
             app.UseCors(
-                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

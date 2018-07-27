@@ -36,7 +36,7 @@ namespace ServicoOnlineServer.Controllers
         {
             servicoFactory = ServicoFactory.Create(this.isolationLevel);
             TipoServicoAbstract tipoServico = servicoFactory.getTipoServico();
-            List<ITipoServicoDominio> tiposServicos = await tipoServico.Gets();
+            List<ITipoServicoDominio> tiposServicos = await tipoServico.GetsAsync();
 
             return tiposServicos.ToList();
         }

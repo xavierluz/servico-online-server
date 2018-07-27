@@ -12,6 +12,7 @@ namespace ServicoOnlineUsuario.empresa.dominio.interfaces
         String NomeFantasia { get; set; }
         String Email { get; set; }
         String Status { get; set; }
+        ICaminhoArquivo ICaminhoArquivo { get; set; }
         ICollection<IEmpresaUsuario> IEmpresaUsuarios { get; set; }
     }
 }

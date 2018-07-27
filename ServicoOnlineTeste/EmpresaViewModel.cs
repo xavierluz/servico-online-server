@@ -17,5 +17,6 @@ namespace ServicoOnlineTeste
         public string Email { get; set; }
         public string Status { get; set; }
         public ICollection<IEmpresaUsuario> IEmpresaUsuarios { get; set; }
+        public ICaminhoArquivo ICaminhoArquivo { get ; set ; }
     }
 }

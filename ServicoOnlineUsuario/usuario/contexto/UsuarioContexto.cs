@@ -16,7 +16,7 @@ namespace ServicoOnlineUsuario.usuario.contexto
             base.OnModelCreating(builder);
 
             builder.Entity<IdentityRole>().HasKey(p => p.Id).HasName("PK_Funcao");
-            builder.Entity<IdentityRole>().Property(p => p.ConcurrencyStamp).HasColumnName("TempoConcorrencia");
+            builder.Entity<IdentityRole>().Property(p => p.ConcurrencyStamp).HasColumnName("TempoConcorrencia").IsConcurrencyToken(true).ValueGeneratedOnAddOrUpdate();
             builder.Entity<IdentityRole>().Property(p => p.Id).HasColumnName("Id").ValueGeneratedOnAdd().HasMaxLength(50); ;
             builder.Entity<IdentityRole>().Property(p => p.Name).HasColumnName("Nome").HasMaxLength(256);
             builder.Entity<IdentityRole>().Property(p => p.NormalizedName).HasColumnName("NomeNormalizado").HasMaxLength(256);

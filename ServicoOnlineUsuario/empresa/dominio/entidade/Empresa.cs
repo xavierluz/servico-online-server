@@ -25,5 +25,8 @@ namespace ServicoOnlineUsuario.empresa.dominio.entidade
         [NotMapped]
         public ICollection<IEmpresaUsuario> IEmpresaUsuarios { get; set; }
         public virtual ICollection<EmpresaUsuario> EmpresaUsuarios { get; set; }
+        [NotMapped]
+        public ICaminhoArquivo ICaminhoArquivo { get; set; }
+        public virtual CaminhoArquivo CaminhoArquivo { get; set; }
     }
 }

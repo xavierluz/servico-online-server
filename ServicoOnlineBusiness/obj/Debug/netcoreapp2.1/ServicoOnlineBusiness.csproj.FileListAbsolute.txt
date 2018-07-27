@@ -3,9 +3,9 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.runtimeconfig.dev.json
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.pdb
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.csprojResolveAssemblyReference.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.csproj.CoreCompileInputs.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.AssemblyInfoInputs.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.AssemblyInfo.cs
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.pdb
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineBusiness\obj\Debug\netcoreapp2.1\ServicoOnlineBusiness.csprojResolveAssemblyReference.cache

@@ -12,6 +12,7 @@ namespace ServicoOnlineUsuario.empresa.contexto
     {
         internal virtual DbSet<Empresa> Empresas { get; set; }
         internal virtual DbSet<EmpresaUsuario> EmpresasUsuarios { get; set; }
+        internal virtual DbSet<CaminhoArquivo> CaminhoArquivos { get; set; }
         private EmpresaContexto(DbContextOptions<EmpresaContexto> options) : base(options)
         {
 
@@ -23,8 +24,11 @@ namespace ServicoOnlineUsuario.empresa.contexto
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             EmpresaMap.createInstance(modelBuilder);
             EmpresaUsuarioMap.createInstance(modelBuilder);
+            CaminhoArquivoMap.createInstance(modelBuilder);
 
             modelBuilder.Entity<Empresa>()
                 .HasMany(e => e.EmpresaUsuarios)
@@ -33,8 +37,15 @@ namespace ServicoOnlineUsuario.empresa.contexto
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_EmpresaUsuario_Empresa");
 
+            modelBuilder.Entity<Empresa>()
+              .HasOne(e => e.CaminhoArquivo)
+              .WithOne(e => e.Empresa).HasForeignKey<CaminhoArquivo>(e => e.EmpresaId)
+              .HasConstraintName("FK_CaminhoArquivo_Empresa");
+
+
+
             modelBuilder.HasDefaultSchema("dbo");
-            base.OnModelCreating(modelBuilder);
+            
         }
     }
 }

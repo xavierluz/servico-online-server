@@ -21,7 +21,7 @@ namespace ServicoOnlineServer.extensao
         public static string ResetPasswordCallbackLink(this IUrlHelper urlHelper, string userId, string code, string scheme)
         {
             return urlHelper.Action(
-                action: nameof(UsuarioController.ResetSenha),
+                action: nameof(UsuarioController.ResetarSenha),
                 controller: "Usuario",
                 values: new { userId, code },
                 protocol: scheme);

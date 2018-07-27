@@ -1,3 +1,7 @@
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.csprojResolveAssemblyReference.cache
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.csproj.CoreCompileInputs.cache
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.AssemblyInfoInputs.cache
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.AssemblyInfo.cs
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -12,9 +16,5 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineBusiness.pdb
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\ServicoOnlineUsuario.pdb
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.csprojResolveAssemblyReference.cache
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.csproj.CoreCompileInputs.cache
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.AssemblyInfoInputs.cache
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.AssemblyInfo.cs
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineTeste\obj\Debug\netcoreapp2.1\ServicoOnlineTeste.pdb

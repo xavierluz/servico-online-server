@@ -25,7 +25,7 @@ namespace ServicoOnlineTeste
             funcao.NormalizedName = "OperadorSistema";
 
 
-           Task< IdentityRole> retorno =  services.Incluir(funcao);
+           Task< IdentityRole> retorno =  services.IncluirAsync(funcao);
         }
     }
 }

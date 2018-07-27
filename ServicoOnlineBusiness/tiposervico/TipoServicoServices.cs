@@ -31,7 +31,7 @@ namespace ServicoOnlineBusiness.tiposervico
             return new TipoServicoServices(sqlBase, isolationLevel);
         }
        
-        public override Task<List<ITipoServicoDominio>> Gets()
+        public override Task<List<ITipoServicoDominio>> GetsAsync()
         {
             IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() select q);
 
@@ -121,6 +121,17 @@ namespace ServicoOnlineBusiness.tiposervico
         public override Task<List<ITipoServicoDominio>> Gets(int paginaIndex, string filtro, int registroPorPagina)
         {
             throw new NotImplementedException();
+        }
+
+        public override List<ITipoServicoDominio> Gets()
+        {
+            IQueryable<TipoServicoDominio> query = (from q in this.Repositorio.Contexto.Set<TipoServicoDominio>() select q);
+
+            List<TipoServicoDominio> tipoServicos = this.Repositorio.Set(query).Get().ToList();
+
+            var ITipoServicos = tipoServicos.ConvertAll(new Converter<TipoServicoDominio, ITipoServicoDominio>(ConverterTipoServico.converterTipoServicoDominioParaITipoServicoDominio));
+
+            return ITipoServicos;
         }
     }
 }

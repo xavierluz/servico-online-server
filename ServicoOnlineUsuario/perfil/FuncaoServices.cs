@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ServicoOnlineUsuario.bases;
 using ServicoOnlineUsuario.bases.banco.interfaces;
-using ServicoOnlineUsuario.perfil.contexto;
 using ServicoOnlineUsuario.usuario.contexto;
 using System;
 using System.Collections.Generic;
@@ -26,7 +25,7 @@ namespace ServicoOnlineUsuario.perfil
         {
             return new FuncaoServices(sqlBase, isolationLevel);
         }
-        internal async override Task<IdentityRole> Incluir(IdentityRole entidade)
+        internal async override Task<IdentityRole> IncluirAsync(IdentityRole entidade)
         {
 
             contexto = new UsuarioContexto(optionsBuilder.Options);
@@ -42,6 +41,31 @@ namespace ServicoOnlineUsuario.perfil
             await registrosAfetados;
 
             return entidade;
+        }
+
+        internal override Task<string> createHashCodigo()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override IdentityRole Incluir(IdentityRole entidade)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override Task<IList<IdentityRole>> GetsAsync(int paginaIndex, string filtro, int registroPorPagina)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override IList<IdentityRole> Gets(int paginaIndex, string filtro, int registroPorPagina)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override int getTotalDeRegistros()
+        {
+            throw new NotImplementedException();
         }
     }
 }

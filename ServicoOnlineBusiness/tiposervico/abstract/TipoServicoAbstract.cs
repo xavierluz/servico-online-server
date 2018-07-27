@@ -32,7 +32,8 @@ namespace ServicoOnlineBusiness.tiposervico.abstracts
 
         }
         public abstract ITipoServicoDominio Get();
-        public abstract Task<List<ITipoServicoDominio>> Gets();
+        public abstract Task<List<ITipoServicoDominio>> GetsAsync();
+        public abstract List<ITipoServicoDominio> Gets();
         public abstract Task<List<ITipoServicoDominio>> Gets(int paginaIndex, string filtro, int registroPorPagina);
         public abstract ITipoServicoDominio Get(int Id);
         public abstract Task<TipoServicoAbstract> Incluir(ITipoServicoDominio tipoServicoDominio);

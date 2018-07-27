@@ -30,7 +30,7 @@ namespace ServicoOnlineUsuario
 
         public UsuarioServices getUsuario()
         {
-            return UsuarioServices.Create();
+            return UsuarioServices.Create(this.sqlBase, this.isolationLevel);
         }
         public EmpresaServices getEmpresa()
         {
