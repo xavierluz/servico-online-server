@@ -10,6 +10,10 @@ using Microsoft.Extensions.Logging;
 using ServicoOnlineServer.usuario.entidade;
 using ServicoOnlineServer.extensao;
 using System.Security.Claims;
+using ServicoOnlineUsuario;
+using ServicoOnlineUsuario.empresa.dominio.interfaces;
+using System.Data;
+using ServicoOnlineServer.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -42,20 +46,34 @@ namespace ServicoOnlineServer.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _userManager.CreateAsync(model, model.PasswordHash);
+                IdentityUser identityUser = model.toIdentityUser();
+
+                var manager = _userManager.CreateAsync(identityUser, model.PasswordHash);
+                var result = await manager;
                 if (result.Succeeded)
                 {
+                    IsolationLevel isolationLevel = IsolationLevel.ReadUncommitted;
+                    Services<IEmpresaUsuario> services = Services<IEmpresaUsuario>.Create(FactoryServices.Create(isolationLevel).getEmpresaUsuario());
+                    IEmpresaUsuario empresaUsuario = new EmpresaUsuarioViewModel();
+                    empresaUsuario.EmpresaId =Guid.Parse(model.EmpresaUsuario.EmpresaId);
+                    empresaUsuario.UsuarioId = identityUser.Id;
+                    empresaUsuario.Status = "AT";
+                    string valorCriptografar = string.Concat("{0}:{1}", empresaUsuario.EmpresaId, identityUser.Email);
+                    empresaUsuario.Key = await services.createHashCodigo(valorCriptografar);
+                    await services.IncluirAsync(empresaUsuario);
+
                     _logger.LogInformation("Usuário criado com nova senha");
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(model);
-                    var callbackUrl = Url.EmailConfirmarLink(model.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmacaoAsync(model.Email, callbackUrl);
-
-                    await _signInManager.SignInAsync(model, isPersistent: false);
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(identityUser);
+                    var callbackUrl = Url.EmailConfirmarLink(identityUser.Id, code, Request.Scheme);
+                    await _emailSender.SendEmailConfirmacaoAsync(identityUser.Email, callbackUrl);
+                    
+                    await _signInManager.SignInAsync(identityUser, isPersistent: false);
                     _logger.LogInformation("Email de confirmação do usuário criado");
-                    return Json("UsuarioId:" + model.Id);
+                    return Json("UsuarioId:" + identityUser.Id);
                 }
                 AddErrors(result);
+                return Json(result.Errors.FirstOrDefault().Description);
             }
 
             return Json(model);

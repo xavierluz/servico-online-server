@@ -39,9 +39,9 @@ namespace ServicoOnlineUsuario
             this.totalDeRegistros = this._strategy.getTotalDeRegistros();
             return retorno;
         }
-        public Task<string> createHashCodigo()
+        public Task<string> createHashCodigo(String valorParaCriptografar)
         {
-            return this._strategy.createHashCodigo();
+            return this._strategy.createHashCodigo(valorParaCriptografar);
         }
     }
 }

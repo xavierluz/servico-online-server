@@ -140,7 +140,7 @@ namespace ServicoOnlineServer.Controllers
         public async Task<bool> adicionarRequisicaoAfuncao([FromBody] ClaimViewModel _funcaoRequisicao)
         {
 
-            Task<IdentityRole> funcao = _roleManager.FindByIdAsync(_funcaoRequisicao.FuncaoId);
+            Task<IdentityRole> funcao = _roleManager.FindByIdAsync(_funcaoRequisicao.EmpresaUsuario.FuncaoId);
             IdentityRole _funcao = await funcao;
 
             var resultado = await _roleManager.AddClaimAsync(_funcao, _funcaoRequisicao.toClaim());

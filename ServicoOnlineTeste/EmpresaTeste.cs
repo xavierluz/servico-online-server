@@ -35,7 +35,7 @@ namespace ServicoOnlineTeste
 
             Services<IEmpresa> services = Services<IEmpresa>.Create(FactoryServices.Create(isolationLevel).getEmpresa());
 
-           string codigoHash = services.createHashCodigo().Result;
+           string codigoHash = services.createHashCodigo("bhhhghghggh").Result;
 
            
 

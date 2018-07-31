@@ -29,7 +29,7 @@ namespace ServicoOnlineUsuario.perfil
             return new UsuarioFuncaoServices(sqlBase, isolationLevel);
         }
 
-        internal override Task<string> createHashCodigo()
+        internal override Task<string> createHashCodigo(String valorParaCriptografar)
         {
             throw new NotImplementedException();
         }

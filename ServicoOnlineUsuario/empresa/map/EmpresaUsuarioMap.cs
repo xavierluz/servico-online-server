@@ -15,7 +15,7 @@ namespace ServicoOnlineUsuario.empresa.map
             builder.Entity<EmpresaUsuario>().HasKey(x => new {x.EmpresaId,x.UsuarioId }).HasName("PK_EmpresaUsuario");
             builder.Entity<EmpresaUsuario>().Property(x => x.EmpresaId).IsRequired();
             builder.Entity<EmpresaUsuario>().Property(x => x.UsuarioId).IsRequired().HasMaxLength(50);
-            builder.Entity<EmpresaUsuario>().Property(x => x.Key).HasMaxLength(100).IsRequired();
+            builder.Entity<EmpresaUsuario>().Property(x => x.Key).IsRequired();
             builder.Entity<EmpresaUsuario>().Property(x => x.Status).HasMaxLength(2).IsRequired().HasDefaultValue("AT");
             builder.Entity<EmpresaUsuario>().HasIndex(p => p.EmpresaId).HasName("EmpresaIdIndex");
             builder.Entity<EmpresaUsuario>().HasIndex(p => p.UsuarioId).IsUnique().HasName("UsuarioIdIndex");

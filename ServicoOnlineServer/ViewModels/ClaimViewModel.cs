@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServicoOnlineServer.ViewModels
 {
-    public class ClaimViewModel 
+    public class ClaimViewModel
     {
         public string FuncaoId { get; set; }
         public string Type { get; set; }
@@ -17,7 +17,7 @@ namespace ServicoOnlineServer.ViewModels
         public string Value { get; set; }
         public IDictionary<string, string> Properties { get; set; }
         protected virtual byte[] CustomSerializationData { get; set; }
-
+        public EmpresaUsuarioFuncaoViewModel EmpresaUsuario { get; set; }
         public Claim toClaim()
         {
             Claim claim = new Claim(this.Type, this.Value, this.ValueType);

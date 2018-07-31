@@ -175,8 +175,12 @@ namespace ServicoOnlineUsuario.empresa
             }
         }
 
-        internal async override Task<string> createHashCodigo()
+        internal async override Task<string> createHashCodigo(String valorParaCriptografar)
         {
+            if (string.IsNullOrWhiteSpace(valorParaCriptografar))
+            {
+                throw new ArgumentException("Valor está vazio", nameof(valorParaCriptografar));
+            }
 
             string codigoCliente = string.Format("{0}:{1}", Guid.NewGuid().ToString(), DateTime.Now.ToLongDateString());
             String codigoCriptografado = string.Empty;

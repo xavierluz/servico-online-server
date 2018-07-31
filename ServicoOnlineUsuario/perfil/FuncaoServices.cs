@@ -43,7 +43,7 @@ namespace ServicoOnlineUsuario.perfil
             return entidade;
         }
 
-        internal override Task<string> createHashCodigo()
+        internal override Task<string> createHashCodigo(String valorParaCriptografar)
         {
             throw new NotImplementedException();
         }
