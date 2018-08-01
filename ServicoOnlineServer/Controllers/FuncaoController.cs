@@ -123,7 +123,7 @@ namespace ServicoOnlineServer.Controllers
             ISqlBase sqlBase = SqlServerFactory.Create();
             FuncaoManager funcaoManager = FuncaoManager.Create(sqlBase, _isolationLevel);
 
-            List<IdentityRoleClaim<string>> funcoesRequisicoes = await funcaoManager.getsRequisicoes(model.funcaoId, startRec, filtro, pageSize);
+            List<IdentityRoleClaim<string>> funcoesRequisicoes = await funcaoManager.getsRequisicoes(model.empresaUsuarioFuncao.FuncaoId, startRec, filtro, pageSize);
 
             IList<FuncaoRequisicaoTableViewModel> tableFuncaoRequisicao = funcoesRequisicoes.ConvertAll(new Converter<IdentityRoleClaim<string>, FuncaoRequisicaoTableViewModel>(FuncaoConverter.converterIdentityRoleClaimParaClaim));
 

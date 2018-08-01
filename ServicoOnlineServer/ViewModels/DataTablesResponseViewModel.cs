@@ -12,10 +12,9 @@ namespace ServicoOnlineServer.ViewModels
         public int Length { get; set; }
         public int RecordsFiltered { get; set; }
         public int RecordsTotal { get; set; }
-        public EmpresaViewModel Data { get; set; }
+        public EmpresaUsuarioFuncaoViewModel empresaUsuarioFuncao { get; set; }
         public DataTableOrderViewModel[] Order { get; set; }
         public DataTableColumnViewModel[] Columns { get; set; }
         public DataTableSearchViewModel Search { get; set; }
-        public string funcaoId { get; set; }
     }
 }

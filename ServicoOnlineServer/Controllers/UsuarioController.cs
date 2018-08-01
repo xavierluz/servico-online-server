@@ -14,6 +14,7 @@ using ServicoOnlineUsuario;
 using ServicoOnlineUsuario.empresa.dominio.interfaces;
 using System.Data;
 using ServicoOnlineServer.ViewModels;
+using ServicoOnlineServer.usuario;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -70,13 +71,42 @@ namespace ServicoOnlineServer.Controllers
                     
                     await _signInManager.SignInAsync(identityUser, isPersistent: false);
                     _logger.LogInformation("Email de confirmação do usuário criado");
-                    return Json("UsuarioId:" + identityUser.Id);
+                    return Json(identityUser);
                 }
                 AddErrors(result);
                 return Json(result.Errors.FirstOrDefault().Description);
             }
 
             return Json(model);
+        }
+
+        // POST api/<Usuario>
+        [Route("getUsuarios")]
+        [HttpPost(Name = "getUsuarios")]
+        public async Task<ActionResult<IEnumerable<IdentityUser>>> Gets([FromBody] DataTablesResponseViewModel model)
+        {
+            string filtro = model.Search.Value;
+            int ordernar = model.Order[0].Column;
+            string ordernarDirecao = model.Order[0].Dir;
+
+            int _draw = model.Draw;
+            int startRec = model.Start;
+            int pageSize = model.Length;
+
+            GerenciarUsuario gerenciarUsuario = GerenciarUsuario.Create(this._userManager);
+
+
+            IList<IdentityUser> usuarios = await gerenciarUsuario.Gets(startRec, filtro, pageSize, model.empresaUsuarioFuncao.EmpresaId);
+
+            IList<UsuarioTableViewModel> tableUsuario = ((List<IdentityUser>)usuarios).ConvertAll(new Converter<IdentityUser, UsuarioTableViewModel>(UsuarioConverter.converterIdentityUserParaUsuarioTableViewModel));
+
+            List<UsuarioTableViewModel> usuariosOrdenados = UsuarioConfiguracao.ordenacaoTableUsuario(ordernar, ordernarDirecao, tableUsuario);
+
+            int totalRegistros = gerenciarUsuario.totalRegistro;
+
+            var retorno = this.Json(new { draw = _draw, recordsTotal = totalRegistros, recordsFiltered = totalRegistros, data = usuariosOrdenados });
+
+            return retorno;
         }
         [HttpGet]
         [AllowAnonymous]
