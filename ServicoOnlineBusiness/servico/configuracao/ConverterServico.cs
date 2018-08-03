@@ -29,8 +29,27 @@ namespace ServicoOnlineBusiness.servico.configuracao
 
             return _servicoDominio;
 
-        } 
+        }
+        internal static ServicoDominio converterIServicoDominioParaServicoDominio(IServicoDominio servicoDominio)
+        {
+            ServicoDominio _servicoDominio = null;
+            if (servicoDominio != null)
+            {
+                _servicoDominio = ServicoDominio.Create();
+                _servicoDominio.Descricao = servicoDominio.Descricao;
+                _servicoDominio.Id = servicoDominio.Id;
+                _servicoDominio.Indicacao = servicoDominio.Indicacao;
+                _servicoDominio.ITipoServico = servicoDominio.ITipoServico;
+                _servicoDominio.Nome = servicoDominio.Nome;
+                _servicoDominio.Preco = servicoDominio.Preco;
+                _servicoDominio.Status = servicoDominio.Status;
+                _servicoDominio.tipoServicoDominioId = servicoDominio.tipoServicoDominioId;
 
+            }
+
+            return _servicoDominio;
+
+        }
         private static ITipoServicoDominio getITipoServicoDominio(TipoServicoDominio tipoServicoDominio)
         {
             ITipoServicoDominio _tipoServicoDominio = null;

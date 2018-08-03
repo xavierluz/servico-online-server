@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ServicoOnlineBusiness.bases.banco.interfaces;
 using ServicoOnlineBusiness.bases.contexto;
+using ServicoOnlineBusiness.bases.retorno;
 using ServicoOnlineBusiness.servico.dominio.entidade;
 using ServicoOnlineBusiness.servico.dominio.interfaces;
 using System;
@@ -24,5 +25,6 @@ namespace ServicoOnlineBusiness.servico.abstracts
         }
 
         public abstract Task<List<IServicoDominio>> Gets(int tipoServicoId);
+        public abstract Task<AcoesResutado> Incluir(IServicoDominio servicoDominio);
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ServicoOnlineServer.ViewModels
 {
-    public class FuncaoRequisicaoTableViewModel
+    public class RequisicaoTableViewModel
     {
         public int Id { get; set; }
         public string Type { get; set; }

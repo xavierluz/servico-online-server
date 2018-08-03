@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ServicoOnlineBusiness.bases.banco.interfaces;
+using ServicoOnlineUsuario.bases.banco.interfaces;
 using ServicoOnlineUsuario.usuario.contexto;
 using System;
 using System.Collections.Generic;
@@ -75,6 +75,44 @@ namespace ServicoOnlineServer.usuario
             }
 
             return await usuarios.ToListAsync();
+        }
+        internal async Task<IList<IdentityUserClaim<string>>> getRequisicoes(int paginaIndex, string filtro, int registroPorPagina, string empresaId,string usuarioId)
+        {
+            this._usuarioContexto = new UsuarioContexto(_optionsBuilder.Options);
+            IQueryable<IdentityUserClaim<string>> requisicoes = null;
+            if (paginaIndex < 0)
+                paginaIndex = 0;
+            if (!string.IsNullOrEmpty(filtro) &&
+                   !string.IsNullOrWhiteSpace(filtro))
+            {
+
+                requisicoes = (from q in this._usuarioContexto.UserClaims
+                               where q.UserId == usuarioId
+                                  && (q.ClaimType.ToUpper().Contains(filtro.ToUpper()) || q.ClaimValue.ToUpper().Contains(filtro.ToUpper()))
+                               select q).AsNoTracking();
+                this.totalRegistro = await requisicoes.CountAsync();
+                requisicoes = null;
+
+                requisicoes = (from q in this._usuarioContexto.UserClaims
+                               where q.UserId == usuarioId
+                                  && (q.ClaimType.ToUpper().Contains(filtro.ToUpper()) || q.ClaimValue.ToUpper().Contains(filtro.ToUpper()))
+                               select q).Skip(paginaIndex).Take(registroPorPagina).AsNoTracking();
+            }
+            else
+            {
+                requisicoes = (from q in this._usuarioContexto.UserClaims
+                               where q.UserId == usuarioId
+                               select q).AsNoTracking();
+
+                this.totalRegistro = await requisicoes.CountAsync();
+                requisicoes = null;
+
+                requisicoes = (from q in this._usuarioContexto.UserClaims
+                               where q.UserId == usuarioId
+                               select q).Skip(paginaIndex).Take(registroPorPagina).AsNoTracking();
+            }
+
+            return await requisicoes.ToListAsync();
         }
     }
 }

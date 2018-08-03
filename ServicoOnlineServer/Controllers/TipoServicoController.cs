@@ -38,7 +38,7 @@ namespace ServicoOnlineServer.Controllers
             TipoServicoAbstract tipoServico = servicoFactory.getTipoServico();
             List<ITipoServicoDominio> tiposServicos = await tipoServico.GetsAsync();
 
-            return tiposServicos.ToList();
+            return Json(tiposServicos.ToList());
         }
         [HttpPost(Name = "Upload")]
         [Route("Upload")]

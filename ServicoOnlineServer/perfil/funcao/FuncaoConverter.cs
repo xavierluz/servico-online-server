@@ -10,14 +10,14 @@ namespace ServicoOnlineServer.perfil.funcao
 {
     internal static class FuncaoConverter
     {
-        internal static FuncaoRequisicaoTableViewModel converterIdentityRoleClaimParaClaim(IdentityRoleClaim<string> identityRoleClaim)
+        internal static RequisicaoTableViewModel converterIdentityRoleClaimParaClaim(IdentityRoleClaim<string> identityRoleClaim)
         {
-            FuncaoRequisicaoTableViewModel funcaoRequisicaoTableViewModel = null;
+            RequisicaoTableViewModel funcaoRequisicaoTableViewModel = null;
             if(identityRoleClaim != null)
             {
                 Claim claim = identityRoleClaim.ToClaim();
 
-                funcaoRequisicaoTableViewModel = new FuncaoRequisicaoTableViewModel();
+                funcaoRequisicaoTableViewModel = new RequisicaoTableViewModel();
                 funcaoRequisicaoTableViewModel.Id = identityRoleClaim.Id;
                 funcaoRequisicaoTableViewModel.Type = claim.Type;
                 funcaoRequisicaoTableViewModel.ValueType = claim.ValueType;

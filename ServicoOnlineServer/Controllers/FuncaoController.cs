@@ -110,7 +110,7 @@ namespace ServicoOnlineServer.Controllers
         // POST api/<Empresa>
         [Route("getsFuncaoRequisicao")]
         [HttpPost(Name = "getsFuncaoRequisicao")]
-        public async Task<ActionResult<IEnumerable<FuncaoRequisicaoTableViewModel>>> getsRequisicoes([FromBody] DataTablesResponseViewModel model)
+        public async Task<ActionResult<IEnumerable<RequisicaoTableViewModel>>> getsRequisicoes([FromBody] DataTablesResponseViewModel model)
         {
             string filtro = model.Search.Value;
             int ordernar = model.Order[0].Column;
@@ -125,9 +125,9 @@ namespace ServicoOnlineServer.Controllers
 
             List<IdentityRoleClaim<string>> funcoesRequisicoes = await funcaoManager.getsRequisicoes(model.empresaUsuarioFuncao.FuncaoId, startRec, filtro, pageSize);
 
-            IList<FuncaoRequisicaoTableViewModel> tableFuncaoRequisicao = funcoesRequisicoes.ConvertAll(new Converter<IdentityRoleClaim<string>, FuncaoRequisicaoTableViewModel>(FuncaoConverter.converterIdentityRoleClaimParaClaim));
+            IList<RequisicaoTableViewModel> tableFuncaoRequisicao = funcoesRequisicoes.ConvertAll(new Converter<IdentityRoleClaim<string>, RequisicaoTableViewModel>(FuncaoConverter.converterIdentityRoleClaimParaClaim));
 
-            IList<FuncaoRequisicaoTableViewModel> funcoesRequisicoesOrdenadas = FuncaoConfiguracao.ordenacaoTableFuncoesRequisicoes(ordernar, ordernarDirecao, tableFuncaoRequisicao);
+            IList<RequisicaoTableViewModel> funcoesRequisicoesOrdenadas = FuncaoConfiguracao.ordenacaoTableFuncoesRequisicoes(ordernar, ordernarDirecao, tableFuncaoRequisicao);
 
             int totalRegistros = funcaoManager.totalRegistro;
 

@@ -15,6 +15,8 @@ using ServicoOnlineUsuario.empresa.dominio.interfaces;
 using System.Data;
 using ServicoOnlineServer.ViewModels;
 using ServicoOnlineServer.usuario;
+using ServicoOnlineUsuario.bases.banco.interfaces;
+using ServicoOnlineUsuario.bases.banco.sqlServer;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -79,7 +81,26 @@ namespace ServicoOnlineServer.Controllers
 
             return Json(model);
         }
+        [Route("createRequisicao")]
+        [HttpPost(Name = "createRequisicao")]
+        [AllowAnonymous]
+        public async Task<IActionResult> createRequisicao([FromBody] ClaimViewModel _usuarioRequisicao)
+        {
+            if (ModelState.IsValid)
+            {
+                IdentityUser usuario = await _userManager.FindByIdAsync(_usuarioRequisicao.EmpresaUsuario.UsuarioId);
 
+                var requisicao = await _userManager.AddClaimAsync(usuario, _usuarioRequisicao.toClaim());
+                if (requisicao.Succeeded)
+                {
+                    _logger.LogInformation("Requisicão do usuário: " + _usuarioRequisicao.EmpresaUsuario.UsuarioId + ", criado com sucesso!");
+                    return Json(requisicao.Succeeded);
+                }
+                AddErrors(requisicao);
+                return Json(requisicao.Errors);
+            }
+            return Json(_usuarioRequisicao);
+        }
         // POST api/<Usuario>
         [Route("getUsuarios")]
         [HttpPost(Name = "getUsuarios")]
@@ -108,6 +129,37 @@ namespace ServicoOnlineServer.Controllers
 
             return retorno;
         }
+        // POST api/<Usuario>
+        [Route("getUsuarioRequisicao")]
+        [HttpPost(Name = "getUsuarioRequisicao")]
+        public async Task<ActionResult<IEnumerable<RequisicaoTableViewModel>>> getUsuarioRequisicao([FromBody] DataTablesResponseViewModel model)
+        {
+            string filtro = model.Search.Value;
+            int ordernar = model.Order[0].Column;
+            string ordernarDirecao = model.Order[0].Dir;
+
+            int _draw = model.Draw;
+            int startRec = model.Start;
+            int pageSize = model.Length;
+            IsolationLevel _isolationLevel = IsolationLevel.ReadUncommitted;
+            ISqlBase sqlBase = SqlServerFactory.Create();
+
+            GerenciarUsuario gerenciarUsuario = GerenciarUsuario.Create(sqlBase, _isolationLevel);
+
+
+            IList<IdentityUserClaim<string>> usuarios = await gerenciarUsuario.getRequisicoes(startRec, filtro, pageSize, model.empresaUsuarioFuncao.EmpresaId, model.empresaUsuarioFuncao.UsuarioId);
+
+            IList<RequisicaoTableViewModel> tableRequisicao = ((List<IdentityUserClaim<string>>)usuarios).ConvertAll(new Converter<IdentityUserClaim<string>, RequisicaoTableViewModel>(UsuarioConverter.converterIdentityUserClaimParaClaim));
+
+            List<RequisicaoTableViewModel> requisicoesOrdenadas = UsuarioConfiguracao.ordenacaoTableUsuarioRequisicoes(ordernar, ordernarDirecao, tableRequisicao);
+
+            int totalRegistros = gerenciarUsuario.totalRegistro;
+
+            var retorno = this.Json(new { draw = _draw, recordsTotal = totalRegistros, recordsFiltered = totalRegistros, data = requisicoesOrdenadas });
+
+            return retorno;
+        }
+        
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmarEmail(string userId, string code)
@@ -150,17 +202,17 @@ namespace ServicoOnlineServer.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> createLogin(string userId,UserLoginInfo userLoginInfo)
+        public async Task<IActionResult> createLogin([FromBody] UsuarioLoginViewModel model)
         {
-            Task<IdentityUser> usuarios = _userManager.FindByIdAsync(userId);
+            Task<IdentityUser> usuarios = _userManager.FindByIdAsync(model.EmpresaUsuario.UsuarioId);
             var _usuario = await usuarios;
-            var resultado = await _userManager.AddLoginAsync(_usuario, userLoginInfo);
+            var resultado = await _userManager.AddLoginAsync(_usuario, model.toUserLoginInfo());
             if (resultado.Succeeded)
             {
                 return RedirectToAction(nameof(ValuesController.Get), "Home");
             }
             AddErrors(resultado);
-            return Json(userLoginInfo);
+            return Json(model.toUserLoginInfo());
         }
 
         [Route("adicionarFuncaoAoUsuario")]

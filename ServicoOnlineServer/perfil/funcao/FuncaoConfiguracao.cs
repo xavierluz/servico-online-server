@@ -37,9 +37,9 @@ namespace ServicoOnlineServer.perfil.funcao
 
             return _tableFuncao;
         }
-        internal static List<FuncaoRequisicaoTableViewModel> ordenacaoTableFuncoesRequisicoes(int ordenacao, string ordenacaoAscDesc, IList<FuncaoRequisicaoTableViewModel> tableFuncaoRequisicao)
+        internal static List<RequisicaoTableViewModel> ordenacaoTableFuncoesRequisicoes(int ordenacao, string ordenacaoAscDesc, IList<RequisicaoTableViewModel> tableFuncaoRequisicao)
         {
-            List<FuncaoRequisicaoTableViewModel> _tableFuncaoRequisicoes = new List<FuncaoRequisicaoTableViewModel>();
+            List<RequisicaoTableViewModel> _tableFuncaoRequisicoes = new List<RequisicaoTableViewModel>();
 
             try
             {

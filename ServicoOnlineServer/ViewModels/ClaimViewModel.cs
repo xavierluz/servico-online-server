@@ -8,7 +8,6 @@ namespace ServicoOnlineServer.ViewModels
 {
     public class ClaimViewModel
     {
-        public string FuncaoId { get; set; }
         public string Type { get; set; }
         public ClaimsIdentity Subject { get; set; }
         public string OriginalIssuer { get; set; }
