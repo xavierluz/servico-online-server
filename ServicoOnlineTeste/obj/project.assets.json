@@ -7698,14 +7698,10 @@
   },
   "packageFolders": {
     "C:\\Users\\807326\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineTeste\\ServicoOnlineTeste.csproj",
       "projectName": "ServicoOnlineTeste",
@@ -7714,13 +7710,11 @@
       "outputPath": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineTeste\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\807326\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -7732,11 +7726,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineUsuario\\ServicoOnlineUsuario.csproj": {
-              "projectPath": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineUsuario\\ServicoOnlineUsuario.csproj"
-            },
             "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineBusiness\\ServicoOnlineBusiness.csproj": {
               "projectPath": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineBusiness\\ServicoOnlineBusiness.csproj"
+            },
+            "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineUsuario\\ServicoOnlineUsuario.csproj": {
+              "projectPath": "E:\\Xavier\\Desenvolvimento\\Angular\\projeto\\serviço\\servico-online-server\\ServicoOnlineServer\\ServicoOnlineUsuario\\ServicoOnlineUsuario.csproj"
             }
           }
         }

@@ -51,20 +51,20 @@ namespace ServicoOnlineUsuario.empresa
                 this.repositorio.createTransacao();
                 IQueryable<Empresa> query = (from q in this.repositorio.Contexto.Set<Empresa>()
                                              where q.Status != "INA"
-                                              && q.CnpjCpf.ToUpper().Contains(filtro.ToLowerInvariant())
-                                              && q.Nome.ToUpper().Contains(filtro.ToLowerInvariant())
-                                              && q.NomeFantasia.ToUpper().Contains(filtro.ToLowerInvariant())
-                                              && q.Status.ToUpper().Contains(filtro.ToLowerInvariant())
+                                              && q.CnpjCpf.ToUpper().Contains(filtro.ToUpper())
+                                              && q.Nome.ToUpper().Contains(filtro.ToUpper())
+                                              && q.NomeFantasia.ToUpper().Contains(filtro.ToUpper())
+                                              && q.Status.ToUpper().Contains(filtro.ToUpper())
                                              select q
                                             );
                 _totalRegistro = repositorio.Set(query).Get().Count();
 
                 query = (from q in this.repositorio.Contexto.Set<Empresa>()
                          where q.Status != "INA"
-                          && q.CnpjCpf.ToUpper().Contains(filtro.ToLowerInvariant())
-                          && q.Nome.ToUpper().Contains(filtro.ToLowerInvariant())
-                          && q.NomeFantasia.ToUpper().Contains(filtro.ToLowerInvariant())
-                          && q.Status.ToUpper().Contains(filtro.ToLowerInvariant())
+                          && q.CnpjCpf.ToUpper().Contains(filtro.ToUpper())
+                          && q.Nome.ToUpper().Contains(filtro.ToUpper())
+                          && q.NomeFantasia.ToUpper().Contains(filtro.ToUpper())
+                          && q.Status.ToUpper().Contains(filtro.ToUpper())
                          select q
                         ).Skip(paginaIndex).Distinct();
             }
@@ -82,7 +82,7 @@ namespace ServicoOnlineUsuario.empresa
                          select q
                         ).Skip(paginaIndex).Distinct();
             }
-            List<Empresa> empresas = await repositorio.Get().ToListAsync().Result.ToAsyncEnumerable().ToList();
+            List<Empresa> empresas = await repositorio.Get().ToListAsync();
 
             IList<IEmpresa> IEmpresas = empresas.ConvertAll(new Converter<Empresa, IEmpresa>(ConverterEmpresa.converterEmpresaParaIEmpresa));
            

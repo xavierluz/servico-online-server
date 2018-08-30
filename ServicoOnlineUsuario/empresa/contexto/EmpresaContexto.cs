@@ -10,9 +10,9 @@ namespace ServicoOnlineUsuario.empresa.contexto
 {
     public class EmpresaContexto : DbContext
     {
-        internal virtual DbSet<Empresa> Empresas { get; set; }
-        internal virtual DbSet<EmpresaUsuario> EmpresasUsuarios { get; set; }
-        internal virtual DbSet<CaminhoArquivo> CaminhoArquivos { get; set; }
+        public virtual DbSet<Empresa> Empresas { get; set; }
+        public virtual DbSet<EmpresaUsuario> EmpresasUsuarios { get; set; }
+        public virtual DbSet<CaminhoArquivo> CaminhoArquivos { get; set; }
         private EmpresaContexto(DbContextOptions<EmpresaContexto> options) : base(options)
         {
 

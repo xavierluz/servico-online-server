@@ -9,9 +9,10 @@ E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\Servico
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.SqlServer.xml
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\bin\Debug\netcoreapp2.1\System.Data.SqlClient.xml
-E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.csprojResolveAssemblyReference.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.csproj.CoreCompileInputs.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.AssemblyInfoInputs.cache
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.AssemblyInfo.cs
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.dll
 E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.pdb
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.csprojAssemblyReference.cache
+E:\Xavier\Desenvolvimento\Angular\projeto\serviço\servico-online-server\ServicoOnlineServer\ServicoOnlineUsuario\obj\Debug\netcoreapp2.1\ServicoOnlineUsuario.csproj.CopyComplete
